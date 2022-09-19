@@ -17,7 +17,7 @@
     <link rel="icon" href="/favicon.ico">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <link rel="manifest" href="/my.webmanifest">
+    <!-- <link rel="manifest" href="/my.webmanifest"> -->
     <meta name="theme-color" content="#fff" />
     
     <link rel="stylesheet" href="styles/main.css" />
@@ -25,9 +25,7 @@
     </head>
     <body x-data="{headerMobileMenu: false, headerFavorites: false, headerFavoritesModal: false, orderCompleteModal: false }" x-bind:class="{ 'overflow-hidden': headerMobileMenu === true || headerFavoritesModal === true || orderCompleteModal === true}">
       {% block js %}
-        <!-- <script src="js/modules/alpine.js" defer></script> -->
-        <script defer src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
-        <script defer src="https://unpkg.com/alpinejs@3.10.3/dist/cdn.min.js"></script>
+        <script src="js/modules/alpine.js" defer></script>
         <script src="js/main.js" defer></script>
         <!-- <script src="js/main.min.js" defer></script> -->
       {% endblock %}

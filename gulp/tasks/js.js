@@ -18,6 +18,7 @@ export const jsModules = () => {
 		)
 		.pipe(rollup({
 			plugins: [
+				// commonjs(),
 				babel({
 					babelHelpers: 'bundled',
 					exclude: 'node_modules/**',

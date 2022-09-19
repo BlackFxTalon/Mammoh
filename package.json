@@ -5,6 +5,7 @@
     "main": "gulpfile.js",
     "type": "module",
     "dependencies": {
+        "@alpinejs/collapse": "^3.10.3",
         "alpinejs": "^3.9.5",
         "gulp-cli": "^2.3.0"
     },
