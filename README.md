@@ -18,4 +18,4 @@
 
 ## сообщение для других
 
-<code>клонируем проект через гит клон (git clone https://github.com/BlackFxTalon/GearBox), удаляем папку .git, после этого начинаем работать с проектом</code>
+<code>клонируем проект через гит клон (git clone https://github.com/BlackFxTalon/Mammoh), удаляем папку .git, после этого начинаем работать с проектом</code>
