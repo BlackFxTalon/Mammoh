@@ -1,0 +1,320 @@
+{% set page_name = 'index page' %}
+{% extends "layouts/layout.html" %} 
+{% block content %}
+<canvas id="index-bg">Your browser does not support the Canvas element.</canvas>
+<div id="index-bg-2"></div>
+<div class="index-products">
+  <div class="container index-products__container">
+  <ul role="list" class="index-products__card-list" x-data="{items: [
+    {title:'F-серия', subtitle: 'цилиндрический мотор-редуктор', imgSrc: 'resources/images/index-products-card-img-1.png'},
+    {title:'K-серия', subtitle: 'коническо-цилиндрический мотор-редуктор', imgSrc: 'resources/images/index-products-card-img-2.png'},
+    {title:'NMRV-серия', subtitle: 'червячный мотор-редуктор', imgSrc: 'resources/images/index-products-card-img-3.png'},
+    {title:'R-RX-серия', subtitle: 'цилиндрический мотор-редуктор', imgSrc: 'resources/images/index-products-card-img-4.png'},
+    {title:'ZDY-серия', subtitle: 'цилиндрический редуктор одноступенчатый', imgSrc: 'resources/images/index-products-card-img-5.png'},
+    {title:'3МП-серия', subtitle: 'Планетарный мотор-редуктор', imgSrc: 'resources/images/index-products-card-img-6.png'}
+    ]}">
+    <template x-for="item in items">
+      <li class="index-products__card-list-item">
+        <figure class="index-products__card">
+         <picture class="index-products__picture">
+           <img src="pyramid.png" loading="lazy" decoding="async" alt="image" width="243" height="164" class="index-products__img" x-bind:src="item.imgSrc">
+         </picture>
+         <figcaption class="index-products__figcaption">
+           <h2 class="index-products__title" x-text="item.title">F-серия</h2>
+           <p class="index-products__subtitle" x-text="item.subtitle">цилиндрический мотор-редуктор</p>
+           <div class="index-products__figcaption-bottom">
+           <a href="#" class="index-products__link">подробнее</a>
+           <a href="#" class="btn btn--outline index-products__btn-link">Конфигуратор</a>
+          </div>
+         </figcaption>
+        </figure>
+   </li>
+    </template>
+  </ul>
+</div>
+</div>
+<section class="index-articles">
+  <div class="container index-articles__container">
+    <div class="index-articles__top-row">
+    <h2 class="section-title index-articles__section-title">Статьи</h2>
+    <a href="#" class="index-articles__all-articles-link index-articles__all-articles-link--tablet">Все статьи</a>
+    </div>
+    <div class="index-articles__list-grid">
+    <ul role="list" class="index-articles__list">
+      <li>
+        <a href="#" class="index-articles__link">
+        <figure class="index-articles__card index-articles__card--big">
+          <picture class="index-articles__picture index-articles__picture--big">
+            <img src="resources/images/index-articles-card-img-1.jpg" loading="lazy" decoding="async" alt="image" class="index-articles__img" width="311" height="246">
+          </picture>
+          <figcaption class="index-articles__figcaption index-articles__figcaption--big">
+            <ul role="list" class="index-articles__tags-list">
+              <li>редукторы</li>
+              <li>Длинный тег</li>
+              <li>Супердлинный тег</li>
+            </ul>
+            <h3 class="index-articles__title index-articles__title--big">Шесть советов по обслуживанию редуктора</h3>
+              <time class="index-articles__date" datetime="2022.09.08">09.08.2022</time>
+          </figcaption>
+        </figure>
+      </a>
+      </li>
+    </ul>
+    <ul role="list" class="index-articles__list" x-data="{items: [
+      {title: 'Три варианта расположения валов промышленных редукторов', imgSrc: 'resources/images/index-articles-card-img-2.jpg'},
+      {title: 'Технология замены масла', imgSrc: 'resources/images/index-articles-card-img-3.jpg'},
+      {title: 'Почему редукторы выходят из строя', imgSrc: 'resources/images/index-articles-card-img-4.jpg'}
+      ]}">
+    <template x-for="item in items">
+      <li>
+        <a href="#" class="index-articles__link">
+        <figure class="index-articles__card index-articles__card--small">
+          <picture class="index-articles__picture index-articles__picture--small">
+            <img x-bind:src="item.imgSrc" loading="lazy" decoding="async" alt="image" class="index-articles__img" width="120" height="118">
+          </picture>
+          <figcaption class="index-articles__figcaption">
+            <ul role="list" class="index-articles__tags-list">
+              <li>редукторы</li>
+              <li>Длинный тег</li>
+              <li>Супердлинный тег</li>
+            </ul>
+            <h3 class="index-articles__title index-articles__title--small" x-text="item.title">Шесть советов по обслуживанию редуктора</h3>
+              <time class="index-articles__date" datetime="2022.09.08">09.08.2022</time>
+          </figcaption>
+        </figure>
+      </a>
+      </li>
+    </template>
+    </ul>
+    </div>
+    <a href="#" class="index-articles__all-articles-link index-articles__all-articles-link--mobile">Все статьи</a>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://code.createjs.com/easeljs-0.7.1.min.js" defer></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js" defer></script>
+<script type="module">
+  // particles animation bg function
+var ParticleEngine = (function() {
+	'use strict';
+
+	function ParticleEngine(canvas_id) {
+		// enforces new
+		if (!(this instanceof ParticleEngine)) {
+			return new ParticleEngine(args);
+		}
+		
+		var _ParticleEngine = this;
+
+		this.canvas_id = canvas_id;
+		this.stage = new createjs.Stage(canvas_id);
+		this.totalWidth = this.canvasWidth = document.getElementById(canvas_id).width = document.getElementById(canvas_id).offsetWidth;
+		this.totalHeight = this.canvasHeight = document.getElementById(canvas_id).height = document.getElementById(canvas_id).offsetHeight;
+		this.compositeStyle = "lighter";
+
+		this.particleSettings = [{id:"small", num:300, fromX:0, toX:this.totalWidth, ballwidth:3, alphamax:0.4, areaHeight:.5, color:"#D7E8FF", fill:false}, 
+								{id:"medium", num:100, fromX:0, toX:this.totalWidth,  ballwidth:8, alphamax:0.3, areaHeight:1, color:"#0A719B", fill:true}, 
+								{id:"large", num:10, fromX:0, toX:this.totalWidth, ballwidth:30,  alphamax:0.2, areaHeight:1, color:"#0A719B", fill:true}];
+		this.particleArray = [];
+		this.lights = [{ellipseWidth:400, ellipseHeight:100, alpha:0.6, offsetX:0, offsetY:0, color:"#0299d6"}, 
+						{ellipseWidth:350, ellipseHeight:250, alpha:0.3, offsetX:-50, offsetY:0, color:"#0299d6"}, 
+						{ellipseWidth:100, ellipseHeight:80, alpha:0.2, offsetX:80, offsetY:-50, color:"#0299d6"}];
+
+		this.stage.compositeOperation = _ParticleEngine.compositeStyle;
+
+
+		function drawBgLight()
+		{
+			var light;
+			var bounds;
+			var blurFilter;
+			for (var i = 0, len = _ParticleEngine.lights.length; i < len; i++) {				
+				light = new createjs.Shape();
+				light.graphics.beginFill(_ParticleEngine.lights[i].color).drawEllipse(0, 0, _ParticleEngine.lights[i].ellipseWidth, _ParticleEngine.lights[i].ellipseHeight);
+				light.regX = _ParticleEngine.lights[i].ellipseWidth/2;
+				light.regY = _ParticleEngine.lights[i].ellipseHeight/2; 
+				light.y = light.initY = _ParticleEngine.totalHeight/2 + _ParticleEngine.lights[i].offsetY;
+				light.x = light.initX =_ParticleEngine.totalWidth/2 + _ParticleEngine.lights[i].offsetX;
+
+				blurFilter = new createjs.BlurFilter(_ParticleEngine.lights[i].ellipseWidth, _ParticleEngine.lights[i].ellipseHeight, 1);
+				bounds = blurFilter.getBounds();
+				light.filters = [blurFilter];
+				light.cache(bounds.x-_ParticleEngine.lights[i].ellipseWidth/2, bounds.y-_ParticleEngine.lights[i].ellipseHeight/2, bounds.width*2, bounds.height*2);
+				light.alpha = _ParticleEngine.lights[i].alpha;
+
+				light.compositeOperation = "screen";
+				_ParticleEngine.stage.addChildAt(light, 0);
+
+				_ParticleEngine.lights[i].elem = light;
+			}
+
+			TweenMax.fromTo(_ParticleEngine.lights[0].elem, 10, {scaleX:1.5, x:_ParticleEngine.lights[0].elem.initX, y:_ParticleEngine.lights[0].elem.initY},{yoyo:true, repeat:-1, ease:Power1.easeInOut, scaleX:2, scaleY:0.7});
+			TweenMax.fromTo(_ParticleEngine.lights[1].elem, 12, { x:_ParticleEngine.lights[1].elem.initX, y:_ParticleEngine.lights[1].elem.initY},{delay:5, yoyo:true, repeat:-1, ease:Power1.easeInOut, scaleY:2, scaleX:2, y:_ParticleEngine.totalHeight/2-50, x:_ParticleEngine.totalWidth/2+100});
+			TweenMax.fromTo(_ParticleEngine.lights[2].elem, 8, { x:_ParticleEngine.lights[2].elem.initX, y:_ParticleEngine.lights[2].elem.initY},{delay:2, yoyo:true, repeat:-1, ease:Power1.easeInOut, scaleY:1.5, scaleX:1.5, y:_ParticleEngine.totalHeight/2, x:_ParticleEngine.totalWidth/2-200});
+		}
+		
+		var blurFilter;
+		function drawParticles(){
+
+			for (var i = 0, len = _ParticleEngine.particleSettings.length; i < len; i++) {
+				var ball = _ParticleEngine.particleSettings[i];
+
+				var circle;
+				for (var s = 0; s < ball.num; s++ )
+				{
+					circle = new createjs.Shape();
+					if(ball.fill){
+						circle.graphics.beginFill(ball.color).drawCircle(0, 0, ball.ballwidth);
+						blurFilter = new createjs.BlurFilter(ball.ballwidth/2, ball.ballwidth/2, 1);
+						circle.filters = [blurFilter];
+						var bounds = blurFilter.getBounds();
+						circle.cache(-50+bounds.x, -50+bounds.y, 100+bounds.width, 100+bounds.height);
+					}else{
+						circle.graphics.beginStroke(ball.color).setStrokeStyle(1).drawCircle(0, 0, ball.ballwidth);
+					}
+					
+					circle.alpha = range(0, 0.1);
+					circle.alphaMax = ball.alphamax;
+					circle.distance = ball.ballwidth * 2;
+					circle.ballwidth = ball.ballwidth;
+					circle.flag = ball.id;
+					_ParticleEngine.applySettings(circle, ball.fromX, ball.toX, ball.areaHeight);
+					circle.speed = range(2, 10);
+					circle.y = circle.initY;
+					circle.x = circle.initX;
+					circle.scaleX = circle.scaleY = range(0.3, 1);
+
+					_ParticleEngine.stage.addChild(circle);
+					
+
+					animateBall(circle);
+
+					_ParticleEngine.particleArray.push(circle);
+				}
+			}	
+		}
+
+		this.applySettings = function(circle, positionX, totalWidth, areaHeight)
+		{
+			circle.speed = range(1, 3);
+			circle.initY = weightedRange(0, _ParticleEngine.totalHeight , 1, [_ParticleEngine.totalHeight * (2-areaHeight/2)/4, _ParticleEngine.totalHeight*(2+areaHeight/2)/4], 0.8 );
+			circle.initX = weightedRange(positionX, totalWidth, 1, [positionX+ ((totalWidth-positionX))/4, positionX+ ((totalWidth-positionX)) * 3/4], 0.6);
+		}
+
+		function animateBall(ball)
+		{
+			var scale = range(0.3, 1);
+			var xpos = range(ball.initX - ball.distance, ball.initX + ball.distance);
+			var ypos = range(ball.initY - ball.distance, ball.initY + ball.distance);
+			var speed = ball.speed;
+			TweenMax.to(ball, speed, {scaleX:scale, scaleY:scale, x:xpos, y:ypos, onComplete:animateBall, onCompleteParams:[ball], ease:Cubic.easeInOut});	
+			TweenMax.to(ball, speed/2, {alpha:range(0.1, ball.alphaMax), onComplete:fadeout, onCompleteParams:[ball, speed]});	
+		}	
+
+		function fadeout(ball, speed)
+		{
+			ball.speed = range(2, 10);
+			TweenMax.to(ball, speed/2, {alpha:0 });
+		}
+
+		drawBgLight();
+		drawParticles();
+	}
+
+	ParticleEngine.prototype.render = function()
+	{
+		this.stage.update();
+	}
+
+	ParticleEngine.prototype.resize = function()
+	{
+		this.totalWidth = this.canvasWidth = document.getElementById(this.canvas_id).width = document.getElementById(this.canvas_id).offsetWidth;
+		this.totalHeight = this.canvasHeight = document.getElementById(this.canvas_id).height = document.getElementById(this.canvas_id).offsetHeight;
+		this.render();
+
+		for (var i= 0, length = this.particleArray.length; i < length; i++)
+		{
+			this.applySettings(this.particleArray[i], 0, this.totalWidth, this.particleArray[i].areaHeight);
+		}
+
+		for (var j = 0, len = this.lights.length; j < len; j++) {
+			this.lights[j].elem.initY = this.totalHeight/2 + this.lights[j].offsetY;
+			this.lights[j].elem.initX =this.totalWidth/2 + this.lights[j].offsetX;
+			TweenMax.to(this.lights[j].elem, .5, {x:this.lights[j].elem.initX, y:this.lights[j].elem.initY});			
+		}
+	}
+
+	return ParticleEngine;
+
+}());
+
+// utils particles animation functions
+
+function range(min, max)
+{
+	return min + (max - min) * Math.random();
+}
+		
+function round(num, precision)
+{
+   var decimal = Math.pow(10, precision);
+   return Math.round(decimal* num) / decimal;
+}
+
+function weightedRange(to, from, decimalPlaces, weightedRange, weightStrength)
+{
+	if (typeof from === "undefined" || from === null) { 
+	    from = 0; 
+	}
+	if (typeof decimalPlaces === "undefined" || decimalPlaces === null) { 
+	    decimalPlaces = 0; 
+	}
+	if (typeof weightedRange === "undefined" || weightedRange === null) { 
+	    weightedRange = 0; 
+	}
+	if (typeof weightStrength === "undefined" || weightStrength === null) { 
+	    weightStrength = 0; 
+	}
+
+   var ret
+   if(to == from){return(to);}
+ 
+   if(weightedRange && Math.random()<=weightStrength){
+	  ret = round( Math.random()*(weightedRange[1]-weightedRange[0]) + weightedRange[0], decimalPlaces )
+   }else{
+	  ret = round( Math.random()*(to-from)+from, decimalPlaces )
+   }
+   return(ret);
+}
+
+// invoke particles animation function
+var particles
+(function(){
+	particles = new ParticleEngine('index-bg');
+	createjs.Ticker.addEventListener("tick", updateCanvas);
+	window.addEventListener('resize', resizeCanvas, false);
+
+	function updateCanvas(){
+		particles.render();
+	}
+
+	function resizeCanvas(){
+		particles.resize();
+	}
+}());
+
+// increaseIndexBg2OpacityOnScroll function
+function increaseIndexBgOpacityOnScroll() {
+  let indexBg2 = document.querySelector('#index-bg-2');
+
+  window.addEventListener('scroll',()=>{
+    indexBg2.style.opacity = window.pageYOffset / indexBg2.clientHeight;
+  })
+}
+
+increaseIndexBgOpacityOnScroll();
+
+</script>
+{% endblock %}
