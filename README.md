@@ -1,20 +1,8 @@
-# ninjiFrontendTemplate2022
-
-template for frontend development 2022 
-
-## list of techs:
-
-<ul>
-<li>html: nunjucks.js + w3c-validator</li>
-<li>css: SASS(SCSS) + minifier + autoprefixer + group-css-media-queries</li>
-<li>js: alpine.js framework + rollup js bundler + minifier(terser) + eslint</li>
-<ul>
-
-## Steps to start developing your new project with this template:
+# Mammoh
 
 ## clone project
 
-<code>git clone https://github.com/BlackFxTalon/ninjiFrontendTemplate2022</code>
+<code>git clone https://github.com/BlackFxTalon/Mammoh</code>
 
 ## install dependencies
 
@@ -27,3 +15,7 @@ template for frontend development 2022
 ## launch production
 
 <code>npm run build</code>
+
+## сообщение для других
+
+<code>клонируем проект через гит клон (git clone https://github.com/BlackFxTalon/GearBox), удаляем папку .git, после этого начинаем работать с проектом</code>
