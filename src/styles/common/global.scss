@@ -569,13 +569,14 @@ li:hover a {
   }
 
   &__favorites-btn:hover {
-    @include media-Extra-extra-large() {
+    @include media-extra-large() {
       .header__favorites-star-icon-default,
       .header__favorites-star-icon-pressed {
         opacity: 0;
       }
       .header__favorites-star-icon-hover {
         opacity: 1;
+        transform: scale(1);
       }
     }
   }
