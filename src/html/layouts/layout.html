@@ -19,7 +19,7 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <!-- <link rel="manifest" href="/my.webmanifest"> -->
     <meta name="theme-color" content="#fff" />
-    
+    {% block css %}{% endblock %}
     <link rel="stylesheet" href="styles/main.css" />
     <!-- <link rel="stylesheet" href="styles/main.min.css" /> -->
     </head>
@@ -29,8 +29,8 @@
         <script src="js/main.js" defer></script>
         <!-- <script src="js/main.min.js" defer></script> -->
       {% endblock %}
+      {% include "../parts/header.html" %}
       {% block scripts %}{% endblock %}
-        {% include "../parts/header.html" %}
         <main class="main">
           {% block content %}{% endblock %}
        </main>

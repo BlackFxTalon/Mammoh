@@ -17,6 +17,7 @@ export const jsModules = () => {
 			}))
 		)
 		.pipe(rollup({
+			context: 'this',
 			plugins: [
 				// commonjs(),
 				babel({
@@ -28,7 +29,15 @@ export const jsModules = () => {
 				  nodeResolve({
 					browser: true, // allow to use
 				  }),
-				  terser(),
+				  terser({
+					format: {
+						comments: false,
+					  },
+					  keep_fnames: false,
+					  mangle: {
+						toplevel: true,
+					  },
+				  }),
 			],
 		},
 		{
