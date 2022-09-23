@@ -7,7 +7,7 @@
 }
 
 /* Remove default margin */
-:is(body,h1,h2,h3,h4,p,figure,blockquote,dl,dd)
+:is(body,h1,h2,h3,h4,h5,p,figure,blockquote,dl,dd)
  {
   margin: 0;
 }
@@ -1235,6 +1235,13 @@ color: var(--white-color);
 
   .header__menu {
     color: var(--dark-color);
+  }
+}
+
+.header--catalog-page {
+  @include media-extra-large() {
+    position: fixed;
+    width: 100%;
   }
 }
 
