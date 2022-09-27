@@ -31,6 +31,8 @@
     }
 
     &__previous-link {
+      position: absolute;
+      left: 0;
       @include media-extra-large() {
         left: -6.8rem;
         top: 10px;

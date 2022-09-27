@@ -1,0 +1,835 @@
+{% set page_name = 'страница конфигуратора' %}
+{% extends "layouts/layout.html" %} 
+{% block css %}
+{% endblock %}
+{% block content %}
+{% include "./parts/breadcrumbs.html" %}
+<section class="configurator-page">
+    <div class="container configurator-page__container">
+    <div class="configurator-page__title-row">
+    <a href="#" class="previous-link configurator-page__previous-link">
+        <svg class="previous-link__icon" width="24" height="12">
+            <use href="../resources/svgSprites/svgSprite.svg#icon-back"></use>
+        </svg>
+    </a>
+    <h1 class="section-title configurator-page__section-title">Название редуктора будет меняться</h1>
+    </div>
+    <div class="configurator-page__top-row">
+    <picture class="configurator-page__main-img-picture">
+      <img src="/resources/images/configurator-page-main-img.png" loading="lazy" decoding="async" alt="image" class="configurator-page__main-img" width="315" height="100">
+    </picture>
+    <div class="configurator-page__info">
+        <p>Качественная группа мотор-редукторов с широким диапазоном параметров, положении и комплектаций.
+        </p>
+        <p>Скорость на выходе: 7-387 об/мин
+        </p>
+        <p>Момент на выходе: до 1740 Нм
+        </p>
+        <p>Мощность мотора: 0.06-11 кВт
+        </p>
+        <p>Правильный подбор российских двигателей.
+        </p>
+    </div>
+    </div>
+    <form action="#" class="configurator-page-form" x-data="{step: 1}">
+        <fieldset class="configurator-page-form__fieldset configurator-page-form__fieldset--step-1 active" x-data="{selectValue: '', inputNumberValueMin1: null, inputNumberValueMax1: null, inputNumberValueMin2: null, inputNumberValueMax2: null, inputNumberValueMin3: null, inputNumberValueMax3: null }" x-bind:class="{ 'active': step === 1 }">
+            <h2 class="configurator-page-form__title active" x-bind:class="{ 'active': step === 1 }">
+                <p>Шаг <span>1</span> <span>:</span></p>
+                <p>Технические параметры</p>
+            </h2>
+            <div class="configurator-page-form__step-body configurator-page-form__step-body-1" x-show="step === 1" x-collapse.duration.800ms>
+            <strong class="mobile">Укажите известные вам параметры в фильтре  и выберите редуктор из вариантов в таблице.</strong>
+            <div class="configurator-page-form__step-body-1-grid">
+            <div class="configurator-page-form__step-body-1-grid-left">
+            <div class="configurator-page-form__controls-group configurator-page-form__controls-group--step-body-1">
+                <p class="configurator-page-form__controls-group-label"><i>i</i><span>-</span><span>передаточное отношение</span></p>
+                <div class="configurator-page-form__select-wrapper" data-tippy-content="укажите передаточное отношение" data-tippy-arrow="true" data-tippy-placement="right" data-tippy-theme="red">
+                <select name="variant" id="variant" class="configurator-page-form__select" x-model="selectValue">
+                    <option value="Вариант">Вариант</option>
+                    <option value="Вариант2">Вариант2</option>
+                    <option value="Вариант3">Вариант3</option>
+                </select>
+                </div>
+                <!-- <div class="configurator-page-form__dropdown">
+                    <div class="configurator-page-form__dropdown-top">
+                        <input type="text" name="dropdown" id="dropdown">
+                        <ul role="list" class="configurator-page-form__dropdown-list">
+                            <li><input type="radio" name="rel" id="var1"></li>
+                            <li><input type="radio" name="rel" id="var2"></li>
+                            <li><input type="radio" name="rel" id="var2"></li>
+                        </ul>
+                    </div>
+                </div> -->
+            </div>
+            <div class="configurator-page-form__controls-group configurator-page-form__controls-group--step-body-1">
+                <p class="configurator-page-form__controls-group-label"><i>P1</i><span>-</span><span>мощность на входе (об/мин)</span></p>
+                <ul role="list" class="configurator-page-form__radio-list" 
+                data-tippy-content="выберите один из вариантов"
+                data-tippy-arrow="true" data-tippy-placement="right" data-tippy-theme="red">
+                    <li>
+                        <input type="radio" name="inputPower" id="все" value="все" checked x-ref="inputPowerInput">
+                        <button type="button" aria-label="button" class="configurator-page-form__radio-list-btn">Все</button>
+                    </li>
+                    <li>
+                        <input type="radio" name="inputPower" id="23" value="23">
+                        <button type="button" aria-label="button" class="configurator-page-form__radio-list-btn">23</button>
+                    </li>
+                    <li>
+                        <input type="radio" name="inputPower" id="65" value="65">
+                        <button type="button" aria-label="button" class="configurator-page-form__radio-list-btn">65</button>
+                    </li>
+                    <li data-tippy-content="недоступный вариант" data-tippy-arrow="true" data-tippy-placement="right" data-tippy-theme="grey">
+                        <input type="radio" name="inputPower" id="53" value="53" class="disabled">
+                        <button type="button" aria-label="button" class="configurator-page-form__radio-list-btn disabled">53</button>
+                    </li>
+                    <li data-tippy-content="недоступный вариант" data-tippy-arrow="true" data-tippy-placement="right" data-tippy-theme="grey">
+                        <input type="radio" name="inputPower" id="8" value="8" class="disabled">
+                        <button type="button" aria-label="button" class="configurator-page-form__radio-list-btn disabled">8</button>
+                    </li>
+                    <li>
+                        <input type="radio" name="inputPower" id="16" value="16">
+                        <button type="button" aria-label="button" class="configurator-page-form__radio-list-btn">16</button>
+                    </li>
+                    <li data-tippy-content="недоступный вариант" data-tippy-arrow="true" data-tippy-placement="right" data-tippy-theme="grey">
+                        <input type="radio" name="inputPower" id="23" value="23" class="disabled">
+                        <button type="button" aria-label="button" class="configurator-page-form__radio-list-btn disabled">23</button>
+                    </li>
+                    <li data-tippy-content="недоступный вариант" data-tippy-arrow="true" data-tippy-placement="right" data-tippy-theme="grey">
+                        <input type="radio" name="inputPower" id="65" value="65" class="disabled">
+                        <button type="button" aria-label="button" class="configurator-page-form__radio-list-btn disabled">65</button>
+                    </li>
+                    <li data-tippy-content="недоступный вариант" data-tippy-arrow="true" data-tippy-placement="right" data-tippy-theme="grey">
+                        <input type="radio" name="inputPower" id="53" value="53" class="disabled">
+                        <button type="button" aria-label="button" class="configurator-page-form__radio-list-btn disabled">53</button>
+                    </li>
+                    <li data-tippy-content="недоступный вариант" data-tippy-arrow="true" data-tippy-placement="right" data-tippy-theme="grey">
+                        <input type="radio" name="inputPower" id="8" value="8" class="disabled">
+                        <button type="button" aria-label="button" class="configurator-page-form__radio-list-btn disabled">8</button>
+                    </li>
+                    <li>
+                        <input type="radio" name="inputPower" id="16" value="16">
+                        <button type="button" aria-label="button" class="configurator-page-form__radio-list-btn">16</button>
+                    </li>
+                    <li>
+                        <input type="radio" name="inputPower" id="23" value="23">
+                        <button type="button" aria-label="button" class="configurator-page-form__radio-list-btn">23</button>
+                    </li>
+                    <li>
+                        <input type="radio" name="inputPower" id="65" value="65">
+                        <button type="button" aria-label="button" class="configurator-page-form__radio-list-btn">65</button>
+                    </li>
+                    <li>
+                        <input type="radio" name="inputPower" id="53" value="53">
+                        <button type="button" aria-label="button" class="configurator-page-form__radio-list-btn">53</button>
+                    </li>
+                    <li>
+                        <input type="radio" name="inputPower" id="8" value="8">
+                        <button type="button" aria-label="button" class="configurator-page-form__radio-list-btn">8</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="configurator-page-form__controls-group configurator-page-form__controls-group--step-body-1">
+                <p class="configurator-page-form__controls-group-label"><i>n1</i><span>-</span><span>скорость на входе (об/мин)</span></p>
+                <ul role="list" class="configurator-page-form__radio-list">
+                    <li>
+                        <input type="radio" name="inputSpeed" id="все" value="все" checked x-ref="inputSpeedInput">
+                        <button type="button" aria-label="button" class="configurator-page-form__radio-list-btn">Все</button>
+                    </li>
+                    <li>
+                        <input type="radio" name="inputSpeed" id="23" value="23">
+                        <button type="button" aria-label="button" class="configurator-page-form__radio-list-btn">23</button>
+                    </li>
+                    <li>
+                        <input type="radio" name="inputSpeed" id="65" value="65">
+                        <button type="button" aria-label="button" class="configurator-page-form__radio-list-btn">65</button>
+                    </li>
+                    <li>
+                        <input type="radio" name="inputSpeed" id="53" value="53">
+                        <button type="button" aria-label="button" class="configurator-page-form__radio-list-btn">53</button>
+                    </li>
+                    <li>
+                        <input type="radio" name="inputSpeed" id="8" value="8">
+                        <button type="button" aria-label="button" class="configurator-page-form__radio-list-btn">8</button>
+                    </li>
+                    <li>
+                        <input type="radio" name="inputSpeed" id="16" value="16">
+                        <button type="button" aria-label="button" class="configurator-page-form__radio-list-btn">16</button>
+                    </li>
+                    <li>
+                        <input type="radio" name="inputSpeed" id="23" value="23">
+                        <button type="button" aria-label="button" class="configurator-page-form__radio-list-btn">23</button>
+                    </li>
+                    <li>
+                        <input type="radio" name="inputSpeed" id="65" value="65">
+                        <button type="button" aria-label="button" class="configurator-page-form__radio-list-btn">65</button>
+                    </li>
+                    <li>
+                        <input type="radio" name="inputSpeed" id="53" value="53">
+                        <button type="button" aria-label="button" class="configurator-page-form__radio-list-btn">53</button>
+                    </li>
+                    <li>
+                        <input type="radio" name="inputSpeed" id="8" value="8">
+                        <button type="button" aria-label="button" class="configurator-page-form__radio-list-btn">8</button>
+                    </li>
+                    <li>
+                        <input type="radio" name="inputSpeed" id="16" value="16">
+                        <button type="button" aria-label="button" class="configurator-page-form__radio-list-btn">16</button>
+                    </li>
+                    <li>
+                        <input type="radio" name="inputSpeed" id="23" value="23">
+                        <button type="button" aria-label="button" class="configurator-page-form__radio-list-btn">23</button>
+                    </li>
+                    <li>
+                        <input type="radio" name="inputSpeed" id="65" value="65">
+                        <button type="button" aria-label="button" class="configurator-page-form__radio-list-btn">65</button>
+                    </li>
+                    <li>
+                        <input type="radio" name="inputSpeed" id="53" value="53">
+                        <button type="button" aria-label="button" class="configurator-page-form__radio-list-btn">53</button>
+                    </li>
+                    <li>
+                        <input type="radio" name="inputSpeed" id="8" value="8">
+                        <button type="button" aria-label="button" class="configurator-page-form__radio-list-btn">8</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="configurator-page-form__controls-group configurator-page-form__controls-group--step-body-1">
+                <p class="configurator-page-form__controls-group-label"><i>n2</i><span>-</span><span>скорость на выходе (об/мин)</span></p>
+                <div class="configurator-page-form__input-number-group" data-tippy-content="укажите параметры"
+                data-tippy-arrow="true" data-tippy-placement="right" data-tippy-theme="red">
+                    <div class="configurator-page-form__input-number-wrapper">
+                        <p>от</p>
+                        <input type="number" name="outputSpeed" id="outputSpeedFrom" x-model="inputNumberValueMin1">
+                    </div>
+                    <div class="configurator-page-form__input-number-wrapper">
+                        <p>до</p>
+                        <input type="number" name="outputSpeed" id="outputSpeedTo" x-model="inputNumberValueMax1">
+                    </div>
+                </div>
+            </div>
+            <div class="configurator-page-form__controls-group configurator-page-form__controls-group--step-body-1">
+                <p class="configurator-page-form__controls-group-label"><i>М2</i><span>-</span><span>момент на выходе (Н*м)</span></p>
+                <div class="configurator-page-form__input-number-group" data-tippy-content="укажите параметры"
+                data-tippy-arrow="true" data-tippy-placement="right" data-tippy-theme="red">
+                    <div class="configurator-page-form__input-number-wrapper">
+                        <p>от</p>
+                        <input type="number" name="outputMoment" id="outputMomentFrom" x-model="inputNumberValueMin2">
+                    </div>
+                    <div class="configurator-page-form__input-number-wrapper">
+                        <p>до</p>
+                        <input type="number" name="outputMoment" id="outputMomentTo" x-model="inputNumberValueMax2">
+                    </div>
+                </div>
+            </div>
+            <div class="configurator-page-form__controls-group configurator-page-form__controls-group--step-body-1">
+                <p class="configurator-page-form__controls-group-label"><i>Sf~ 0,8...7</i><span>-</span><span>сервис фактор</span></p>
+                <div class="configurator-page-form__input-number-group" data-tippy-content="укажите параметры"
+                data-tippy-arrow="true" data-tippy-placement="right" data-tippy-theme="red">
+                    <div class="configurator-page-form__input-number-wrapper">
+                        <p>от</p>
+                        <input type="number" name="serviceFactor" id="serviceFactorFrom" x-model="inputNumberValueMin3">
+                    </div>
+                    <div class="configurator-page-form__input-number-wrapper">
+                        <p>до</p>
+                        <input type="number" name="serviceFactor" id="serviceFactorTo" x-model="inputNumberValueMax3">
+                    </div>
+                </div>
+            </div>
+            <button type="button" aria-label="button" class="configurator-page-form__clear-btn" x-on:click="selectValue = 'Вариант'; inputNumberValueMin1 = null; inputNumberValueMax1 = null; inputNumberValueMin2 = null; inputNumberValueMax2 = null; inputNumberValueMin3 = null; inputNumberValueMax3 = null; $refs.inputPowerInput.checked = true; $refs.inputSpeedInput.checked = true">
+                <svg class="configurator-page-form__clear-btn-icon" width="12" height="12">
+                    <use href="../resources/svgSprites/svgSprite.svg#close-icon"></use>
+                </svg>
+                <p>Очистить</p>
+            </button>
+            </div>
+            <div class="configurator-page-form__step-body-1-grid-right">
+                <strong class="desktop">Укажите известные вам параметры в фильтре  и выберите редуктор из вариантов в таблице.</strong>
+            <div class="configurator-page-form__chars-table-wrapper">
+            <table class="configurator-page-form__chars-table">
+                <thead>
+                    <tr>
+                        <th>Габарит</th>
+                        <th>i</th>
+                        <th>P1</th>
+                        <th>n1</th>
+                        <th>n2</th>
+                        <th>M2</th>
+                        <th>Sf</th>
+                        <th>Мотор</th>
+                        <th>1348 поз.</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template x-for="i in 2">
+                        <tr>
+                            <td>110</td>
+                            <td>7,5</td>
+                            <td>7,5</td>
+                            <td>28806</td>
+                            <td>384</td>
+                            <td>171,6</td>
+                            <td class="configurator-page-form__service-factor-green">2,3</td>
+                            <td>АИР112М2</td>
+                            <td><button type="button" class="configurator-page-form__step-1-choose-btn" x-on:click="step = 2">выбрать</button></td>
+                        </tr>
+                    </template>
+                    <template x-for="i in 2">
+                        <tr>
+                            <td>110</td>
+                            <td>7,5</td>
+                            <td>7,5</td>
+                            <td>28806</td>
+                            <td>384</td>
+                            <td>171,6</td>
+                            <td class="configurator-page-form__service-factor-green">2,3</td>
+                            <td>АИР112М2</td>
+                            <td><button type="button" class="configurator-page-form__step-1-choose-btn" x-on:click="step = 2">выбрать</button></td>
+                        </tr>
+                    </template>
+                    <template x-for="i in 2">
+                        <tr>
+                            <td>110</td>
+                            <td>7,5</td>
+                            <td>7,5</td>
+                            <td>28806</td>
+                            <td>384</td>
+                            <td>171,6</td>
+                            <td class="configurator-page-form__service-factor-yellow">2,3</td>
+                            <td>АИР112М2</td>
+                            <td><button type="button" class="configurator-page-form__step-1-choose-btn" x-on:click="step = 2">выбрать</button></td>
+                        </tr>
+                    </template>
+                    <template x-for="i in 5">
+                        <tr>
+                            <td>110</td>
+                            <td>7,5</td>
+                            <td>7,5</td>
+                            <td>28806</td>
+                            <td>384</td>
+                            <td>171,6</td>
+                            <td class="configurator-page-form__service-factor-green">2,3</td>
+                            <td>АИР112М2</td>
+                            <td><button type="button" class="configurator-page-form__step-1-choose-btn" x-on:click="step = 2">выбрать</button></td>
+                        </tr>
+                    </template>
+                    <tr>
+                        <td>110</td>
+                        <td>7,5</td>
+                        <td>7,5</td>
+                        <td>28806</td>
+                        <td>384</td>
+                        <td>171,6</td>
+                        <td class="configurator-page-form__service-factor-red">2,3</td>
+                        <td>АИР112М2</td>
+                        <td><button type="button" class="configurator-page-form__step-1-choose-btn" x-on:click="step = 2">выбрать</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+            <div class="configurator-page-form__step-1-bottom">
+                {% include "./parts/pagination.html" %}
+                <div class="configurator-page-form__service-factor-page-links">
+                    <a href="#">Применение</a>
+                    <a href="#" class="configurator-page-form__service-factor-green">A</a>
+                    <a href="#" class="configurator-page-form__service-factor-yellow">B</a>
+                    <a href="#" class="configurator-page-form__service-factor-red">C</a>
+                </div>
+            </div>
+            </div>
+            </div>
+            </div>
+        </fieldset>
+        <fieldset class="configurator-page-form__fieldset configurator-page-form__fieldset--step-2" x-data="{setupTab: 'setupTab1'}" x-bind:class="{ 'active': step === 2 }">
+            <h2 class="configurator-page-form__title" x-bind:class="{ 'active': step === 2 }">
+                <p>Шаг <span>2</span> <span>:</span></p>
+                <p>Комплектация</p>
+            </h2>
+            <div class="configurator-page-form__step-body configurator-page-form__step-body-2" x-show="step === 2" x-collapse.duration.800ms>
+               <ul role="list" class="configurator-page-form__setup-tabs">
+                <li x-on:click="setupTab = 'setupTab1'"><h4 x-bind:class="{ 'active': setupTab === 'setupTab1' }">Вал малых оборотов</h4></li>
+                <li x-on:click="setupTab = 'setupTab2'"><h4 x-bind:class="{ 'active': setupTab === 'setupTab2' }">Фланец или реактивная тяга</h4></li>
+                <li x-on:click="setupTab = 'setupTab3'"><h4 x-bind:class="{ 'active': setupTab === 'setupTab3' }">Монтажное положение</h4></li>
+                <li x-on:click="setupTab = 'setupTab4'"><h4 x-bind:class="{ 'active': setupTab === 'setupTab4' }">Наличие и позиция двигателя</h4></li>
+               </ul>
+               <section class="configurator-page-form__setup-section" x-show="setupTab === 'setupTab1'" x-collapse.duration.800ms>
+                <h3 class="section-title configurator-page-form__setup-section-title">Наличие и варианты выходного вала</h3>
+                <ul role="list" class="configurator-page-form__setup-list">
+                    <li class="configurator-page-form__setup-list-item">
+                        <input type="radio" name="setupSection1" id="no" class="configurator-page-form__setup-radio" checked x-ref="inputSetupValue1">
+                        <figure class="configurator-page-form__setup-card">
+                            <picture class="configurator-page-form__setup-card-picture">
+                              <img src="/resources/images/configurator-page-form-setup-card-img-1.png" loading="lazy" decoding="async" alt="image" class="configurator-page-form__setup-card-img" width="151" height="200">
+                            </picture>
+                            <figcaption class="configurator-page-form__setup-card-figcaption">
+                                <h4 class="configurator-page-form__setup-card-title">нет ( по умолчанию)</h4>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="configurator-page-form__setup-list-item">
+                        <input type="radio" name="setupSection1" id="AS-d" class="configurator-page-form__setup-radio">
+                        <figure class="configurator-page-form__setup-card">
+                            <picture class="configurator-page-form__setup-card-picture">
+                              <img src="/resources/images/configurator-page-form-setup-card-img-2.png" loading="lazy" decoding="async" alt="image" class="configurator-page-form__setup-card-img" width="151" height="200">
+                            </picture>
+                            <figcaption class="configurator-page-form__setup-card-figcaption">
+                                <h4 class="configurator-page-form__setup-card-title">AS-d</h4>
+                                <a href="#" class="configurator-page-form__setup-card-link">
+                                    <svg class="configurator-page-form__setup-card-link-icon" width="15" height="15">
+                                        <use href="../resources/svgSprites/svgSprite.svg#icon-pen"></use>
+                                    </svg>
+                                    Чертёж
+                                </a>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="configurator-page-form__setup-list-item">
+                        <input type="radio" name="setupSection1" id="AB" class="configurator-page-form__setup-radio">
+                        <figure class="configurator-page-form__setup-card">
+                            <picture class="configurator-page-form__setup-card-picture">
+                              <img src="/resources/images/configurator-page-form-setup-card-img-3.png" loading="lazy" decoding="async" alt="image" class="configurator-page-form__setup-card-img" width="151" height="200">
+                            </picture>
+                            <figcaption class="configurator-page-form__setup-card-figcaption">
+                                <h4 class="configurator-page-form__setup-card-title">AB</h4>
+                                <a href="#" class="configurator-page-form__setup-card-link">
+                                    <svg class="configurator-page-form__setup-card-link-icon" width="15" height="15">
+                                        <use href="../resources/svgSprites/svgSprite.svg#icon-pen"></use>
+                                    </svg>
+                                    Чертёж
+                                </a>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="configurator-page-form__setup-list-item">
+                        <input type="radio" name="setupSection1" id="AS-S" class="configurator-page-form__setup-radio">
+                        <figure class="configurator-page-form__setup-card">
+                            <picture class="configurator-page-form__setup-card-picture">
+                              <img src="/resources/images/configurator-page-form-setup-card-img-4.png" loading="lazy" decoding="async" alt="image" class="configurator-page-form__setup-card-img" width="151" height="200">
+                            </picture>
+                            <figcaption class="configurator-page-form__setup-card-figcaption">
+                                <h4 class="configurator-page-form__setup-card-title">AS-S</h4>
+                                <a href="#" class="configurator-page-form__setup-card-link">
+                                    <svg class="configurator-page-form__setup-card-link-icon" width="15" height="15">
+                                        <use href="../resources/svgSprites/svgSprite.svg#icon-pen"></use>
+                                    </svg>
+                                    Чертёж
+                                </a>
+                            </figcaption>
+                        </figure>
+                    </li>
+                </ul>
+               </section>
+               <section class="configurator-page-form__setup-section" x-show="setupTab === 'setupTab2'" x-collapse.duration.800ms>
+                <h3 class="section-title configurator-page-form__setup-section-title">Наличие выходного фланца или амортизаторов под удерживающий рычаг</h3>
+                <ul role="list" class="configurator-page-form__setup-list">
+                    <li class="configurator-page-form__setup-list-item">
+                        <input type="radio" name="setupSection2" id="no" class="configurator-page-form__setup-radio" checked x-ref="inputSetupValue2">
+                        <figure class="configurator-page-form__setup-card">
+                            <picture class="configurator-page-form__setup-card-picture">
+                              <img src="/resources/images/configurator-page-form-setup-card-img-1.png" loading="lazy" decoding="async" alt="image" class="configurator-page-form__setup-card-img" width="151" height="200">
+                            </picture>
+                            <figcaption class="configurator-page-form__setup-card-figcaption">
+                                <h4 class="configurator-page-form__setup-card-title">нет ( по умолчанию)</h4>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="configurator-page-form__setup-list-item">
+                        <input type="radio" name="setupSection2" id="AS-d" class="configurator-page-form__setup-radio">
+                        <figure class="configurator-page-form__setup-card">
+                            <picture class="configurator-page-form__setup-card-picture">
+                              <img src="/resources/images/configurator-page-form-setup-card-img-2.png" loading="lazy" decoding="async" alt="image" class="configurator-page-form__setup-card-img" width="151" height="200">
+                            </picture>
+                            <figcaption class="configurator-page-form__setup-card-figcaption">
+                                <h4 class="configurator-page-form__setup-card-title">AS-d</h4>
+                                <a href="#" class="configurator-page-form__setup-card-link">
+                                    <svg class="configurator-page-form__setup-card-link-icon" width="15" height="15">
+                                        <use href="../resources/svgSprites/svgSprite.svg#icon-pen"></use>
+                                    </svg>
+                                    Чертёж
+                                </a>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="configurator-page-form__setup-list-item">
+                        <input type="radio" name="setupSection2" id="AB" class="configurator-page-form__setup-radio">
+                        <figure class="configurator-page-form__setup-card">
+                            <picture class="configurator-page-form__setup-card-picture">
+                              <img src="/resources/images/configurator-page-form-setup-card-img-3.png" loading="lazy" decoding="async" alt="image" class="configurator-page-form__setup-card-img" width="151" height="200">
+                            </picture>
+                            <figcaption class="configurator-page-form__setup-card-figcaption">
+                                <h4 class="configurator-page-form__setup-card-title">AB</h4>
+                                <a href="#" class="configurator-page-form__setup-card-link">
+                                    <svg class="configurator-page-form__setup-card-link-icon" width="15" height="15">
+                                        <use href="../resources/svgSprites/svgSprite.svg#icon-pen"></use>
+                                    </svg>
+                                    Чертёж
+                                </a>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="configurator-page-form__setup-list-item">
+                        <input type="radio" name="setupSection2" id="AS-S" class="configurator-page-form__setup-radio">
+                        <figure class="configurator-page-form__setup-card">
+                            <picture class="configurator-page-form__setup-card-picture">
+                              <img src="/resources/images/configurator-page-form-setup-card-img-4.png" loading="lazy" decoding="async" alt="image" class="configurator-page-form__setup-card-img" width="151" height="200">
+                            </picture>
+                            <figcaption class="configurator-page-form__setup-card-figcaption">
+                                <h4 class="configurator-page-form__setup-card-title">AS-S</h4>
+                                <a href="#" class="configurator-page-form__setup-card-link">
+                                    <svg class="configurator-page-form__setup-card-link-icon" width="15" height="15">
+                                        <use href="../resources/svgSprites/svgSprite.svg#icon-pen"></use>
+                                    </svg>
+                                    Чертёж
+                                </a>
+                            </figcaption>
+                        </figure>
+                    </li>
+                </ul>
+               </section>
+               <section class="configurator-page-form__setup-section" x-show="setupTab === 'setupTab3'" x-collapse.duration.800ms>
+                <h3 class="section-title configurator-page-form__setup-section-title">Mонтажное положение редуктора F с двигателем</h3>
+                <ul role="list" class="configurator-page-form__setup-list">
+                    <li class="configurator-page-form__setup-list-item">
+                        <input type="radio" name="setupSection3" id="no" class="configurator-page-form__setup-radio" checked x-ref="inputSetupValue3">
+                        <figure class="configurator-page-form__setup-card">
+                            <picture class="configurator-page-form__setup-card-picture">
+                              <img src="/resources/images/configurator-page-form-setup-card-img-1.png" loading="lazy" decoding="async" alt="image" class="configurator-page-form__setup-card-img" width="151" height="200">
+                            </picture>
+                            <figcaption class="configurator-page-form__setup-card-figcaption">
+                                <h4 class="configurator-page-form__setup-card-title">нет ( по умолчанию)</h4>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="configurator-page-form__setup-list-item">
+                        <input type="radio" name="setupSection3" id="AS-d" class="configurator-page-form__setup-radio">
+                        <figure class="configurator-page-form__setup-card">
+                            <picture class="configurator-page-form__setup-card-picture">
+                              <img src="/resources/images/configurator-page-form-setup-card-img-2.png" loading="lazy" decoding="async" alt="image" class="configurator-page-form__setup-card-img" width="151" height="200">
+                            </picture>
+                            <figcaption class="configurator-page-form__setup-card-figcaption">
+                                <h4 class="configurator-page-form__setup-card-title">AS-d</h4>
+                                <a href="#" class="configurator-page-form__setup-card-link">
+                                    <svg class="configurator-page-form__setup-card-link-icon" width="15" height="15">
+                                        <use href="../resources/svgSprites/svgSprite.svg#icon-pen"></use>
+                                    </svg>
+                                    Чертёж
+                                </a>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="configurator-page-form__setup-list-item">
+                        <input type="radio" name="setupSection3" id="AB" class="configurator-page-form__setup-radio">
+                        <figure class="configurator-page-form__setup-card">
+                            <picture class="configurator-page-form__setup-card-picture">
+                              <img src="/resources/images/configurator-page-form-setup-card-img-3.png" loading="lazy" decoding="async" alt="image" class="configurator-page-form__setup-card-img" width="151" height="200">
+                            </picture>
+                            <figcaption class="configurator-page-form__setup-card-figcaption">
+                                <h4 class="configurator-page-form__setup-card-title">AB</h4>
+                                <a href="#" class="configurator-page-form__setup-card-link">
+                                    <svg class="configurator-page-form__setup-card-link-icon" width="15" height="15">
+                                        <use href="../resources/svgSprites/svgSprite.svg#icon-pen"></use>
+                                    </svg>
+                                    Чертёж
+                                </a>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="configurator-page-form__setup-list-item">
+                        <input type="radio" name="setupSection3" id="AS-S" class="configurator-page-form__setup-radio">
+                        <figure class="configurator-page-form__setup-card">
+                            <picture class="configurator-page-form__setup-card-picture">
+                              <img src="/resources/images/configurator-page-form-setup-card-img-4.png" loading="lazy" decoding="async" alt="image" class="configurator-page-form__setup-card-img" width="151" height="200">
+                            </picture>
+                            <figcaption class="configurator-page-form__setup-card-figcaption">
+                                <h4 class="configurator-page-form__setup-card-title">AS-S</h4>
+                                <a href="#" class="configurator-page-form__setup-card-link">
+                                    <svg class="configurator-page-form__setup-card-link-icon" width="15" height="15">
+                                        <use href="../resources/svgSprites/svgSprite.svg#icon-pen"></use>
+                                    </svg>
+                                    Чертёж
+                                </a>
+                            </figcaption>
+                        </figure>
+                    </li>
+                </ul>
+               </section>
+               <section class="configurator-page-form__setup-section" x-show="setupTab === 'setupTab4'" x-collapse.duration.800ms>
+                <h3 class="section-title configurator-page-form__setup-section-title">Установка распределительной коробки двигателя относительно редуктора</h3>
+                <ul role="list" class="configurator-page-form__setup-list">
+                    <li class="configurator-page-form__setup-list-item">
+                        <input type="radio" name="setupSection4" id="no" class="configurator-page-form__setup-radio" checked x-ref="inputSetupValue4">
+                        <figure class="configurator-page-form__setup-card">
+                            <picture class="configurator-page-form__setup-card-picture">
+                              <img src="/resources/images/configurator-page-form-setup-card-img-1.png" loading="lazy" decoding="async" alt="image" class="configurator-page-form__setup-card-img" width="151" height="200">
+                            </picture>
+                            <figcaption class="configurator-page-form__setup-card-figcaption">
+                                <h4 class="configurator-page-form__setup-card-title">нет ( по умолчанию)</h4>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="configurator-page-form__setup-list-item">
+                        <input type="radio" name="setupSection4" id="AS-d" class="configurator-page-form__setup-radio">
+                        <figure class="configurator-page-form__setup-card">
+                            <picture class="configurator-page-form__setup-card-picture">
+                              <img src="/resources/images/configurator-page-form-setup-card-img-2.png" loading="lazy" decoding="async" alt="image" class="configurator-page-form__setup-card-img" width="151" height="200">
+                            </picture>
+                            <figcaption class="configurator-page-form__setup-card-figcaption">
+                                <h4 class="configurator-page-form__setup-card-title">AS-d</h4>
+                                <a href="#" class="configurator-page-form__setup-card-link">
+                                    <svg class="configurator-page-form__setup-card-link-icon" width="15" height="15">
+                                        <use href="../resources/svgSprites/svgSprite.svg#icon-pen"></use>
+                                    </svg>
+                                    Чертёж
+                                </a>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="configurator-page-form__setup-list-item">
+                        <input type="radio" name="setupSection4" id="AB" class="configurator-page-form__setup-radio">
+                        <figure class="configurator-page-form__setup-card">
+                            <picture class="configurator-page-form__setup-card-picture">
+                              <img src="/resources/images/configurator-page-form-setup-card-img-3.png" loading="lazy" decoding="async" alt="image" class="configurator-page-form__setup-card-img" width="151" height="200">
+                            </picture>
+                            <figcaption class="configurator-page-form__setup-card-figcaption">
+                                <h4 class="configurator-page-form__setup-card-title">AB</h4>
+                                <a href="#" class="configurator-page-form__setup-card-link">
+                                    <svg class="configurator-page-form__setup-card-link-icon" width="15" height="15">
+                                        <use href="../resources/svgSprites/svgSprite.svg#icon-pen"></use>
+                                    </svg>
+                                    Чертёж
+                                </a>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="configurator-page-form__setup-list-item">
+                        <input type="radio" name="setupSection4" id="AS-S" class="configurator-page-form__setup-radio">
+                        <figure class="configurator-page-form__setup-card">
+                            <picture class="configurator-page-form__setup-card-picture">
+                              <img src="/resources/images/configurator-page-form-setup-card-img-4.png" loading="lazy" decoding="async" alt="image" class="configurator-page-form__setup-card-img" width="151" height="200">
+                            </picture>
+                            <figcaption class="configurator-page-form__setup-card-figcaption">
+                                <h4 class="configurator-page-form__setup-card-title">AS-S</h4>
+                                <a href="#" class="configurator-page-form__setup-card-link">
+                                    <svg class="configurator-page-form__setup-card-link-icon" width="15" height="15">
+                                        <use href="../resources/svgSprites/svgSprite.svg#icon-pen"></use>
+                                    </svg>
+                                    Чертёж
+                                </a>
+                            </figcaption>
+                        </figure>
+                    </li>
+                </ul>
+               </section>
+               <button type="button" aria-label="button" class="configurator-page-form__setup-clear-btn" x-on:click="$refs.inputSetupValue1.checked = true;$refs.inputSetupValue2.checked = true;$refs.inputSetupValue3.checked = true;$refs.inputSetupValue4.checked = true">
+                <svg class="configurator-page-form__setup-clear-btn-icon" width="12" height="12">
+                    <use href="../resources/svgSprites/svgSprite.svg#close-icon"></use>
+                </svg>
+                <p>Сбросить по умолчанию</p>
+               </button>
+               <button class="btn btn--primary configurator-page-form__to-step-3-btn" type="button" x-on:click="step = 3">Далее</button>
+            </div>
+        </fieldset>
+        <fieldset class="configurator-page-form__fieldset configurator-page-form__fieldset--step-3" x-bind:class="{ 'active': step === 3 }" x-data="{expandStep3: true}">
+            <h2 class="configurator-page-form__title" x-bind:class="{ 'active': step === 3 }">
+                <p>Шаг <span>3</span> <span>:</span></p>
+                <p>Оформление заявки</p>
+            </h2>
+            <div class="configurator-page-form__step-body configurator-page-form__step-body-3" x-show="step === 3" x-collapse.duration.800ms>
+                <div class="configurator-page-form__step-body-3-grid">
+                    <div class="configurator-page-form__step-body-3-grid-left">
+                <div class="configurator-page-form__controls-group-step-3-wrapper" x-show="expandStep3 === true" x-collapse.duration.800ms>
+                <div class="configurator-page-form__controls-group">
+                    <ul role="list" class="configurator-page-form__step-3-list">
+                        <li>
+                            <strong>Выбран червячный редуктор:</strong>
+                            <strong>NMRV</strong>
+                        </li>
+                        <li>
+                            <p>Типоразмер (габарит):</p>
+                            <p>110</p>
+                        </li>
+                        <li>
+                            <p>i-передаточное отногшение:</p>
+                            <p>7,5</p>
+                        </li>
+                        <li>
+                            <a href="#" class="configurator-page-form__step-3-link">
+                                <svg class="configurator-page-form__step-3-link-icon" width="15" height="15">
+                                    <use href="../resources/svgSprites/svgSprite.svg#icon-pen-blue"></use>
+                                </svg>
+                                чертёж редуктора
+                            </a>
+                        </li>
+                    </ul>
+                    <ul role="list" class="configurator-page-form__step-3-list">
+                        <li>
+                            <strong>Входной фланец:</strong>
+                            <strong>112IM3081</strong>
+                        </li>
+                        <li>
+                            <p>Аналог DIN:</p>
+                            <p>132IMB5</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="configurator-page-form__controls-group">
+                    <ul role="list" class="configurator-page-form__step-3-list">
+                        <li>
+                            <strong>Электродвигатель:</strong>
+                            <strong>АИР112М2</strong>
+                        </li>
+                        <li>
+                            <p>Число полюсов:</p>
+                            <p>2</p>
+                        </li>
+                        <li>
+                            <p>Синхр.скорость:</p>
+                            <p>3000 <span>(об/мин)</span></p>
+                        </li>
+                        <li>
+                            <p>Факт. норм. скорость:</p>
+                            <p>2880 <span>(об/мин)</span></p>
+                        </li>
+                        <li>
+                            <p>Положение распред. коробки двигателя:</p>
+                            <p>М1</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="configurator-page-form__controls-group">
+                    <ul role="list" class="configurator-page-form__step-3-list">
+                        <li>
+                            <strong>Фактические режимы эксплуатации редуктора</strong>
+                        </li>
+                        <li>
+                            <p><span>Р1 </span> - <span> мощность на входе:</span></p>
+                            <p>7,5 <span>(кВт)</span></p>
+                        </li>
+                        <li>
+                            <p><span>n1 </span> - <span> скорость на входе:</span></p>
+                            <p>2880 <span>(об/мин)</span></p>
+                        </li>
+                        <li>
+                            <p><span>n2 </span> - <span> скорость на выходе:</span></p>
+                            <p>384 <span>(об/мин)</span></p>
+                        </li>
+                        <li>
+                            <p><span>M2 </span> - <span> момент на выходе:</span></p>
+                            <p>171,6 <span>(Н*м)</span></p>
+                        </li>
+                        <li>
+                            <p><span>Sf </span> - <span> сервис фактор:</span></p>
+                            <p>= <span>2,3</span></p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="configurator-page-form__controls-group">
+                    <ul role="list" class="configurator-page-form__step-3-list">
+                        <li>
+                            <strong>Выходной вал:</strong>
+                            <strong>АВ</strong>
+                        </li>
+                        <li>
+                            <a href="#" class="configurator-page-form__step-3-link">
+                                <svg class="configurator-page-form__step-3-link-icon" width="15" height="15">
+                                    <use href="../resources/svgSprites/svgSprite.svg#icon-pen-blue"></use>
+                                </svg>
+                                чертёж редуктора
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="configurator-page-form__controls-group">
+                    <ul role="list" class="configurator-page-form__step-3-list">
+                        <li>
+                            <strong>Положение редуктора:</strong>
+                            <strong>B3</strong>
+                        </li>
+                    </ul>
+                </div>
+               </div>
+               <button type="button" aria-label="button" class="configurator-page-form__expand-step-3-btn" x-on:click="expandStep3 = !expandStep3">
+                Подробнее
+                <svg class="configurator-page-form__expand-step-3-btn-icon" width="12" height="12" x-bind:class="{ 'active': expandStep3 === true }">
+                    <use href="../resources/svgSprites/svgSprite.svg#icon-expand"></use>
+                </svg>
+               </button>
+            </div>
+            <div class="configurator-page-form__step-body-3-grid-right">
+               <h3 class="section-title configurator-page-form__step-3-title"><span>NMRV</span><span>_110</span><span>_7,5</span><span>_132IMB5</span><span>_1SH1R</span><span>_АИР112M2</span><span>_M1</span><span>_B3</span><span>_0</span><span>_AB</span></span></h3>
+               <div class="form-controls-wrapper configurator-page-form__form-controls-wrapper configurator-page-form__form-controls-wrapper--reductor-count">
+                <label>Кол-во редукторов<sup>*</sup></label>
+                <div class="configurator-page-form__counter" x-data="{counter: 1}">
+                    <button type="button" aria-label="button" class="configurator-page-form__counter-minus" x-on:click="counter--" x-bind:class="{ 'disabled': counter === 1 }">
+                        <svg class="configurator-page-form__counter-minus-icon" width="16" height="10">
+                            <use href="../resources/svgSprites/svgSprite.svg#icon-minus"></use>
+                        </svg> 
+                    </button>
+                    <input type="number" name="reductorsCount" id="reductorsCount" disabled x-model="counter">
+                    <button type="button" aria-label="button" class="configurator-page-form__counter-plus" x-on:click="counter++">
+                        <svg class="configurator-page-form__counter-plus-icon" width="16" height="15">
+                            <use href="../resources/svgSprites/svgSprite.svg#icon-plus"></use>
+                        </svg> 
+                    </button>
+                </div>
+               </div>
+               <div class="form-controls-wrapper configurator-page-form__form-controls-wrapper configurator-page-form__form-controls-wrapper--textarea">
+                <label for="comment">Комментарий к заявке</label>
+                <textarea name="comment" id="comment">Введите текст</textarea>
+               </div>
+               <div class="form-controls-wrapper configurator-page-form__form-controls-wrapper">
+                <label for="name">ФИО<sup>*</sup></label>
+                <input type="text" name="name" id="name" placeholder="Ваше имя" required>
+               </div>
+               <div class="form-controls-wrapper configurator-page-form__form-controls-wrapper">
+                <label for="mail">E-mail<sup>*</sup></label>
+                <input type="email" name="mail" id="mail" placeholder="ivan@mail.ru" required>
+               </div>
+               <div class="form-controls-wrapper configurator-page-form__form-controls-wrapper">
+                <label for="phone">Телефон</label>
+                <div class="configurator-page-form__phonecode-grid">
+                   <div class="configurator-page-form__phonecode-wrapper">
+                 <select name="phonecode" id="phonecode">
+                    <option value="+86">+86</option>
+                    <option value="+7">+7</option>
+                    <option value="+90">+90</option>
+                 </select>
+                </div> 
+                <input type="tel" name="phone" id="phone" placeholder="999-99-99-99" x-mask="999-99-99-99">
+                </div>
+               </div>
+               <div class="form-controls-wrapper configurator-page-form__form-controls-wrapper">
+                <label for="captcha">Код с картинки<sup>*</sup></label>
+                <div class="configurator-page-form__captcha-grid">
+                    <div class="configurator-page-form__captcha-img">
+                    <img loading="lazy" decoding="async" src="/resources/images/captcha-img.png" alt="image" width="31" height="24">
+                   </div>
+                   <input type="text" name="captcha" id="captcha" placeholder="Введите код" required>
+                </div>
+               </div>
+               <div class="configurator-page-form__copyright">
+                <input type="checkbox" name="copyright" id="copyright">
+                <label for="copyright"><a href="#">Подтверждаю согласие с политикой конфиденциальности</a></label>
+               </div>
+               <button type="submit" class="btn btn--primary configurator-page-form__submit-btn">Отправить заявку</button>
+            </div>
+               </div>
+            </div>
+        </fieldset>
+    </form>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="https://unpkg.com/@popperjs/core@2" defer></script>
+<script src="https://unpkg.com/tippy.js@6" defer></script>
+<script type="module">
+    tippy('[data-tippy-content]');
+    if(window.innerWidth >= 1200) {
+        tippy(document.querySelectorAll('[data-tippy-theme="red"]'), {
+        showOnCreate: true,
+    });
+    }
+</script>
+{% endblock %}
