@@ -1,0 +1,93 @@
+{% set page_name = 'страница сервис фактор' %}
+{% extends "layouts/layout.html" %} 
+{% block css %}
+{% endblock %}
+{% block content %}
+{% include "./parts/breadcrumbs.html" %}
+<section class="service-factor-page">
+    <div class="container service-factor-page__container">
+        <div class="service-factor-page__title-row">
+            <a href="#" class="previous-link service-factor-page__previous-link">
+                <svg class="previous-link__icon" width="24" height="12">
+                    <use href="../resources/svgSprites/svgSprite.svg#icon-back"></use>
+                </svg>
+            </a>
+            <h1 class="section-title service-factor-page__section-title">Выбор сервис-фактора (Sf)</h1>
+            </div>
+            <div class="service-factor-page__grid">
+            <div class="service-factor-page__grid-left">
+            <picture class="service-factor-page__picture">
+              <img src="/resources/images/service-factor-img.png" loading="lazy" decoding="async" alt="image" class="service-factor-page__img" width="343" height="178">
+            </picture>
+            <ul role="list" class="service-factor-page__pressure-list">
+                <li><h4>НАГРУЗКА:</h4></li>
+                <li>A - равномерная fa ? 0.3</li>
+                <li>B - средние колебания fa ? 3</li>
+                <li>C - сильные колебания fa ? 10</li>
+            </ul>
+            </div>
+            <div class="service-factor-page__grid-right">
+                <div class="service-factor-page__info">
+                  <p>Сервис-фактор - коэффициент определяющий качество работы группы оборудования (двигатель+редуктор) в реальных условиях.</p>
+                  <p>При выборе редуктора без двигателя сервис-фактор равен "1" . Следует применять корректирующий коэффициент на нормальные
+                    технические параметры выбранного редуктора учитывающий реальные условия его работы.
+                    </p>
+                    <strong>Рекомендуется выбирать редукторы с сервис-фактором равным или более указанного в сводной таблице.</strong>
+                </div>
+                <div class="service-factor-page__info">
+                    <p>Сервис-фактор ( Sf ) зависит от условий эксплуатации червячного редуктора.
+                    </p>
+                    <p>Параметры, которые необходимо учитывать для точного расчета сервис-фактора:</p>
+                    <ul role="list">
+                        <li>тип нагрузки рабочего оборудования: A - B - C
+                        </li>
+                        <li>продолжительность рабочего времени: часов/день
+                        </li>
+                        <li>частоту пусков: запусков/час</li>
+                    </ul>
+                  </div>
+                  <div class="service-factor-page__info">
+                    <strong>fa = Je/Jm</strong>
+                    <p>Je (кгм2) - момент сниженной инерции внешней нагрузки на ведущем валу</p>
+                    <p>Jm (кгм2) - момент инерции двигателя</p>
+                    <strong>При fa > 10 необходимо обратиться в нашу Техническую службу.</strong>
+                  </div>
+                  <div class="service-factor-page__info">
+                    <ul role="list" class="service-factor-page__chars-list">
+                        <li>
+                            <p><span>A </span><span>-</span></p>
+                            <p>Шнеки для подачи легких материалов, вентиляторы, сборочные линии,
+                                ленточные конвейеры для легких материалов, малые смесители,
+                                подъемники, очистители, заполнители, системы управления.
+                                </p>
+                        </li>
+                        <li>
+                            <p><span>В <span>-</span></span></p>
+                            <p>Намоточные механизмы, механизмы подачи деревообрабатывающих
+                                станков, грузовые лифты, балансиры, резьбонарезные станки, средние
+                                смесители, ленточные конвейеры для тяжелых материалов, лебедки,
+                                раздвижные дверцы, скребки для удобрений, упаковочные машины,
+                                смесители бетона, крановые механизмы, фрезы, гибочные машины, шестеренчатые насосы.  
+                                </p>
+                        </li>
+                        <li>
+                            <p><span>С <span>-</span></span></p>
+                            <p>Смесители для тяжелых материалов, ножницы, прессы, центрифуги,
+                                суппорты, лебедки и подъемники для тяжелых материалов, токарно-
+                                шлифовальные станки, камнедробилки, ковшовые элеваторы,
+                                сверлильные станки, молотковые дробилки, кулачковые прессы,
+                                гибочные машины, поворотные столы, очистные барабаны, вибраторы,
+                                измельчители.          
+                                </p>
+                        </li>
+                    </ul>
+                  </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}
