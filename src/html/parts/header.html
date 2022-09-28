@@ -1,4 +1,4 @@
-{% if page_name === 'главная страница' %}
+{% if page_name === 'главная страница' or  page_name === 'страница ошибки' %}
 <header class="header header--index-page" x-on:click.outside="headerMobileMenu = false;headerFavorites = false">
     <div class="container header__container">
         <button type="button" class="header__mobile-menu-btn" x-on:click="headerFavorites = false;headerMobileMenu = !headerMobileMenu" x-bind:class="{ 'active': headerMobileMenu === true }">

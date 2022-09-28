@@ -1,0 +1,18 @@
+{% set page_name = 'страница ошибки' %}
+{% extends "layouts/layout.html" %} 
+{% block content %}
+<canvas id="particles-animation-bg">Your browser does not support the Canvas element.</canvas>
+<section class="errors-page">
+    <div class="container errors-page__container">
+        <h1>404</h1>
+        <p>Эта страница не найдена</p>
+        <button type="button" aria-label="button" class="btn btn--primary errors-page__link-btn">На главную</button>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://code.createjs.com/easeljs-0.7.1.min.js" defer></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js" defer></script>
+<script src="js/modules/particlesAnimation.js" defer></script>
+{% endblock %}

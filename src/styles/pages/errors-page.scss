@@ -1,0 +1,61 @@
+// errors-page styles
+.errors-page {
+    padding-top: 145px;
+    padding-bottom: 91px;
+
+    @include media-medium() {
+        padding-top: 303px;
+        padding-bottom: 291px;
+    }
+
+    @include media-extra-large() {
+        padding-top: 294px;
+        padding-bottom: 184px;
+    }
+
+    @include media-custom(1920px) {
+        padding-top: 324px;
+        padding-bottom: 214px;
+    }
+
+    &__container {
+        display: grid;
+        text-align: center;
+    }
+
+    h1 {
+        font-family: 'Intro Demo',sans-serif;
+font-weight: 900;
+font-size: 128px;
+line-height: 128px;
+color: var(--white-color);
+padding-bottom: 20px;
+
+@include media-medium() {
+    font-size: 200px;
+line-height: 200px;
+padding-bottom: 30px;
+}
+    }
+
+    p {
+        font-family: 'Inter',sans-serif;
+font-weight: 600;
+font-size: 16px;
+line-height: 20px;
+color: var(--white-color);
+padding-bottom: 32px;
+
+@include media-medium() {
+    padding-bottom: 52px;
+}
+    }
+
+    &__link-btn {
+        font-size: 15px;
+line-height: 18px;
+max-width: 136px;
+margin-left: auto;
+margin-right: auto;
+    }
+}

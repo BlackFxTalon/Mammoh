@@ -1,7 +1,7 @@
 {% set page_name = 'главная страница' %}
 {% extends "layouts/layout.html" %} 
 {% block content %}
-<canvas id="index-bg">Your browser does not support the Canvas element.</canvas>
+<canvas id="particles-animation-bg">Your browser does not support the Canvas element.</canvas>
 <div id="index-bg-2"></div>
 <div class="index-products">
   <div class="container index-products__container">
@@ -95,5 +95,6 @@
 {% block scripts %}
 <script src="https://code.createjs.com/easeljs-0.7.1.min.js" defer></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js" defer></script>
+<script src="js/modules/particlesAnimation.js" defer></script>
 <script src="js/modules/indexPage.js" defer></script>
 {% endblock %}
