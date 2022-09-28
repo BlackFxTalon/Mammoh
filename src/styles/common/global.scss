@@ -467,6 +467,9 @@ line-height: 20px;
     color: var(--blue-dark-color);
   }
 }
+.breadcrumbs--absolute {
+  position: absolute;
+}
 .previous-link {
   color: inherit;
   text-decoration: none;
@@ -1275,10 +1278,8 @@ color: var(--white-color);
 }
 
 .header--fixed {
-  @include media-extra-large() {
     position: fixed;
     width: 100%;
-  }
 }
 
 .header-favorites-modal {

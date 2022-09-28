@@ -107,7 +107,7 @@
     </template>
     </nav>
 </header>
-{% elif page_name === 'страница товара' or page_name === 'страница конфигуратора zdy' %}
+{% elif page_name === 'страница товара' or page_name === 'страница конфигуратора zdy' or page_name === 'страница о компании' %}
 <header class="header header--fixed" x-on:click.outside="headerMobileMenu = false;headerFavorites = false">
     <div class="container header__container">
         <button type="button" class="header__mobile-menu-btn" x-on:click="headerFavorites = false;headerMobileMenu = !headerMobileMenu" x-bind:class="{ 'active': headerMobileMenu === true }">
