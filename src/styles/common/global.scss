@@ -1274,7 +1274,7 @@ color: var(--white-color);
   }
 }
 
-.header--catalog-page {
+.header--fixed {
   @include media-extra-large() {
     position: fixed;
     width: 100%;

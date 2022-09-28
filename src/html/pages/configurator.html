@@ -32,7 +32,7 @@
     </div>
     </div>
     <form action="#" class="configurator-page-form" x-data="{step: 1}">
-        <fieldset class="configurator-page-form__fieldset configurator-page-form__fieldset--step-1 active" x-data="{selectValue: '', inputNumberValueMin1: null, inputNumberValueMax1: null, inputNumberValueMin2: null, inputNumberValueMax2: null, inputNumberValueMin3: null, inputNumberValueMax3: null }" x-bind:class="{ 'active': step === 1 }">
+        <fieldset class="configurator-page-form__fieldset configurator-page-form__fieldset--step-1 configurator-page-form__fieldset--b-b-none active" x-data="{selectValue: '', inputNumberValueMin1: null, inputNumberValueMax1: null, inputNumberValueMin2: null, inputNumberValueMax2: null, inputNumberValueMin3: null, inputNumberValueMax3: null }" x-bind:class="{ 'active': step === 1 }">
             <h2 class="configurator-page-form__title active" x-bind:class="{ 'active': step === 1 }">
                 <p>Шаг <span>1</span> <span>:</span></p>
                 <p>Технические параметры</p>
@@ -50,16 +50,6 @@
                     <option value="Вариант3">Вариант3</option>
                 </select>
                 </div>
-                <!-- <div class="configurator-page-form__dropdown">
-                    <div class="configurator-page-form__dropdown-top">
-                        <input type="text" name="dropdown" id="dropdown">
-                        <ul role="list" class="configurator-page-form__dropdown-list">
-                            <li><input type="radio" name="rel" id="var1"></li>
-                            <li><input type="radio" name="rel" id="var2"></li>
-                            <li><input type="radio" name="rel" id="var2"></li>
-                        </ul>
-                    </div>
-                </div> -->
             </div>
             <div class="configurator-page-form__controls-group configurator-page-form__controls-group--step-body-1">
                 <p class="configurator-page-form__controls-group-label"><i>P1</i><span>-</span><span>мощность на входе (об/мин)</span></p>
@@ -339,7 +329,7 @@
             </div>
             </div>
         </fieldset>
-        <fieldset class="configurator-page-form__fieldset configurator-page-form__fieldset--step-2" x-data="{setupTab: 'setupTab1'}" x-bind:class="{ 'active': step === 2 }">
+        <fieldset class="configurator-page-form__fieldset configurator-page-form__fieldset--step-2 configurator-page-form__fieldset--b-b-none" x-data="{setupTab: 'setupTab1'}" x-bind:class="{ 'active': step === 2 }">
             <h2 class="configurator-page-form__title" x-bind:class="{ 'active': step === 2 }">
                 <p>Шаг <span>2</span> <span>:</span></p>
                 <p>Комплектация</p>
@@ -755,7 +745,7 @@
                </button>
             </div>
             <div class="configurator-page-form__step-body-3-grid-right">
-               <h3 class="section-title configurator-page-form__step-3-title"><span>NMRV</span><span>_110</span><span>_7,5</span><span>_132IMB5</span><span>_1SH1R</span><span>_АИР112M2</span><span>_M1</span><span>_B3</span><span>_0</span><span>_AB</span></span></h3>
+               <h3 class="section-title configurator-page-form__full-name-title"><span>NMRV</span><span>_110</span><span>_7,5</span><span>_132IMB5</span><span>_1SH1R</span><span>_АИР112M2</span><span>_M1</span><span>_B3</span><span>_0</span><span>_AB</span></span></h3>
                <div class="form-controls-wrapper configurator-page-form__form-controls-wrapper configurator-page-form__form-controls-wrapper--reductor-count">
                 <label>Кол-во редукторов<sup>*</sup></label>
                 <div class="configurator-page-form__counter" x-data="{counter: 1}">

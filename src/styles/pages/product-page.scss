@@ -8,6 +8,12 @@
     @include media-custom(1920px) {
         grid-template-columns: 798px 1fr;
     }
+
+    &__fixed-desktop-elems {
+        @include media-extra-large() {
+            position: fixed;
+        }
+    }
 }
 .product-page-aside {
     background-color: var(--blue2);

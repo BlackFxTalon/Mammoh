@@ -743,7 +743,6 @@
 {% endblock %}
 
 {% block scripts %}
-<script src="https://cdn.jsdelivr.net/npm/sticksy/dist/sticksy.min.js" defer></script>
 <script type="module">
     import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.esm.browser.min.js';
 
@@ -771,13 +770,6 @@
         loop: true,
         loopedSlides: 3,
     }); 
-
-    if(window.innerWidth >= 1200) {
-      const stickyEl = new Sticksy('.product-page-grid__fixed-desktop-elems', {
-    listen: true, // Listen for the DOM changes in the container
-    topSpacing: 70,
-});
-    }
 
   </script>
 {% endblock %}
