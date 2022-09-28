@@ -26,7 +26,9 @@
     <body x-data="{headerMobileMenu: false, headerFavorites: false, headerFavoritesModal: false, orderCompleteModal: false }" x-bind:class="{ 'overflow-hidden': headerMobileMenu === true || headerFavoritesModal === true || orderCompleteModal === true}">
       {% block js %}
       <script defer src="https://unpkg.com/@alpinejs/mask@3.x.x/dist/cdn.min.js"></script>
-        <script src="js/modules/alpine.js" defer></script>
+      <script defer src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+      <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+        <!-- <script src="js/modules/alpine.js" defer></script> -->
         <script src="js/main.js" defer></script>
         <!-- <script src="js/main.min.js" defer></script> -->
       {% endblock %}
