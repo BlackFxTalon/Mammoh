@@ -444,6 +444,10 @@ line-height: 20px;
     color: var(--dark);
   }
 
+  &__list--clr-white {
+    color: var(--white-color);
+  }
+
   &__item {
     display: flex;
     align-items: center;
@@ -689,6 +693,10 @@ li:hover a {
         transition: color .3s;
       }
     }
+  }
+
+  &__menu--clr-white {
+    color: var(--white-color);
   }
 
   &__favorites-btn {

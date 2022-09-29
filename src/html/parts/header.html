@@ -107,6 +107,115 @@
     </template>
     </nav>
 </header>
+{% elif page_name === 'страница статья' %}
+<header class="header header--index-page" x-on:click.outside="headerMobileMenu = false;headerFavorites = false">
+    <div class="container header__container">
+        <button type="button" class="header__mobile-menu-btn" x-on:click="headerFavorites = false;headerMobileMenu = !headerMobileMenu" x-bind:class="{ 'active': headerMobileMenu === true }">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <a href="#" class="header__logo header__logo--tablet">
+            <svg class="header__logo-icon" width="28" height="28">
+                <use href="../resources/svgSprites/svgSprite.svg#logo-icon"></use>
+            </svg>
+            <p class="header__logo-title">mammoh</p>
+        </a>
+        <div class="header__right">
+            <ul class="header__menu header__menu--clr-white" role="list">
+                <li><a href="#">Каталог</a></li>
+                <li><a href="#">Статьи</a></li>
+                <li><a href="#">О нас</a></li>
+                <li><a href="#">Контакты</a></li>
+            </ul>
+        <button class="header__favorites-btn" type="button" x-on:click="headerMobileMenu = false;headerFavorites = !headerFavorites" x-bind:class="{ 'active': headerFavorites === true }">
+            <svg class="header__favorites-star-icon" width="24" height="23">
+                <use class="header__favorites-star-icon-default" href="../resources/svgSprites/svgSprite.svg#star-icon-white"></use>
+                <use class="header__favorites-star-icon-default-black" href="../resources/svgSprites/svgSprite.svg#star-icon"></use>
+                <use class="header__favorites-star-icon-hover" href="../resources/svgSprites/svgSprite.svg#star-icon-hover"></use>
+                <use class="header__favorites-star-icon-pressed" href="../resources/svgSprites/svgSprite.svg#star-icon-pressed"></use>
+            </svg>
+            <span class="header__favorites-btn-count">10</span>
+        </button>
+        <button class="header__auth-btn" type="button">
+            <svg class="header__auth-icon" width="22" height="20">
+                <use class="header__auth-icon-default" href="../resources/svgSprites/svgSprite.svg#auth-icon-white"></use>
+                <use class="header__auth-icon-default-black" href="../resources/svgSprites/svgSprite.svg#auth-icon"></use>
+                <use class="header__auth-icon-hover" href="../resources/svgSprites/svgSprite.svg#auth-icon-hover"></use>
+            </svg>
+            <span class="header__auth-btn-indicator"></span>
+        </button>
+    </div>
+    </div>
+    <nav class="header__mobile-menu" x-show="headerMobileMenu === true" x-collapse.duration.800ms>
+        <a href="#" class="header__logo header__logo--mobile">
+            <svg class="header__logo-icon" width="28" height="28">
+                <use href="../resources/svgSprites/svgSprite.svg#logo-icon"></use>
+            </svg>
+            <p class="header__logo-title">mammoh</p>
+        </a>
+        <ul role="list" class="header__mobile-menu-list">
+            <li><a href="#">Главная</a></li>
+            <li><a href="#">Статьи</a></li>
+            <li><a href="#">О нас</a></li>
+            <li><a href="#">Контакты</a></li>
+        </ul>
+        <div class="header__lang-dropdown" x-data="{langDropdownList: false, langDropdownText: 'Русский'}" x-on:click.outside="langDropdownList = false">
+            <div class="header__lang-dropdown-top" x-on:click="langDropdownList = !langDropdownList">
+                <svg class="header__lang-dropdown-icon" width="18" height="18">
+                    <use href="../resources/svgSprites/svgSprite.svg#lang-icon-black"></use>
+                </svg>
+                <p class="header__lang-dropdown-text" x-text="langDropdownText">Русский</p>
+                <svg class="header__lang-dropdown-arrow" width="13" height="10" x-bind:class="{ 'active': langDropdownList === true }">
+                    <use href="../resources/svgSprites/svgSprite.svg#arrow-icon"></use>
+                </svg>
+            </div>
+            <ul role="list" class="header__lang-dropdown-list" x-show="langDropdownList === true" x-collapse.duration.800ms>
+               <li x-on:click="langDropdownText = 'Русский';langDropdownList = false" x-bind:class="{ 'active': langDropdownText === 'Русский' }">Русский</li>
+               <li x-on:click="langDropdownText = 'English';langDropdownList = false" x-bind:class="{ 'active': langDropdownText === 'English' }">English</li>
+               <li x-on:click="langDropdownText = 'الإمارات العربية المتحدة';langDropdownList = false" x-bind:class="{ 'active': langDropdownText === 'الإمارات العربية المتحدة' }">الإمارات العربية المتحدة</li>
+               <li x-on:click="langDropdownText = '中国';langDropdownList = false" x-bind:class="{ 'active': langDropdownText === '中国'}">中国</li>
+            </ul>
+        </div>
+    </nav>
+    <nav x-data="{ items: ['ZDY-80','ZDY-81','ZDY-82','ZDY-83'] }" class="header__favorites-menu" x-show="headerFavorites === true" x-collapse.duration.800ms>
+      <div class="header__favorites-menu-top">
+        <h3>Избранные проекты</h3>
+        <button type="button" class="btn header__favorites-menu-close" x-on:click="headerFavorites = false">
+            <svg class="header__favorites-menu-close-icon" width="12" height="12">
+                <use href="../resources/svgSprites/svgSprite.svg#close-icon"></use>
+            </svg>
+        </button>
+      </div> 
+      <template x-if="items.length === 0">
+        <p class="header__favorites-menu-text">Вы ещё не выбрали проекты</p>
+      </template>
+      <template x-if="items.length >= 1">
+        <ul role="list" class="header__favorites-menu-list">
+            <template x-for="(item) in items" :key="item">
+                <li class="header__favorites-menu-item">
+                    <div class="header__favorites-menu-item-info">
+                        <picture class="header__favorites-menu-item-picture">
+                          <img src="resources/images/header-favorites-menu-img.png" loading="lazy" decoding="async" alt="image" class="header__favorites-menu-item-img" width="52" height="52">
+                        </picture>
+                        <h4 class="header__favorites-menu-item-title" x-text="item">ZDY-80</h4>
+                    </div>
+                    <button type="button" class="btn  header__favorites-menu-item-clear-btn" x-on:click="items = items.filter(i => i !== item)">
+                        <svg class="header__favorites-menu-item-clear-icon" width="16" height="18">
+                            <use href="../resources/svgSprites/svgSprite.svg#header-favorites-menu-clear-icon"></use>
+                        </svg>
+                    </button>
+                </li>
+            </template>
+          </ul>
+      </template>
+      <template x-if="items.length >= 1">
+      <button type="button" class="btn btn--primary header__favorites-menu-modal-btn" x-on:click="headerFavoritesModal = true">
+        Запросить всё
+      </button>
+    </template>
+    </nav>
+</header>
 {% elif page_name === 'страница товара' or page_name === 'страница конфигуратора zdy' or page_name === 'страница о компании' %}
 <header class="header header--fixed" x-on:click.outside="headerMobileMenu = false;headerFavorites = false">
     <div class="container header__container">
