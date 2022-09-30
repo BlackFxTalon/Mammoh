@@ -546,6 +546,7 @@ line-height: 16px;
 }
 .to-top-btn {
   position: fixed;
+  z-index: 99;
   right: 0;
   bottom: 0;
   padding: 0;
