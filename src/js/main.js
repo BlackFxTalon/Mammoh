@@ -12,3 +12,17 @@ function headerStylesOnScroll() {
     })
   }
   headerStylesOnScroll();
+
+  function showToTopBtnOnScroll() {
+    const toTopBtn = document.querySelector('.to-top-btn');
+
+    window.addEventListener('scroll',()=>{
+      if(window.scrollY >= 600) {
+        toTopBtn.classList.add('active');
+      } else {
+        toTopBtn.classList.remove('active');
+      }
+    })
+  }
+
+  showToTopBtnOnScroll();
