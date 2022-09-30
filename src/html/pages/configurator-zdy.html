@@ -31,7 +31,7 @@
 </div>
 </div>
 </aside>
-<section class="configurator-zdy-page">
+<section class="configurator-zdy-page" x-data="{configuratorSubmitModal: false}">
     <div class="container configurator-zdy-page__container">
         <div class="configurator-zdy-page__title-row">
             <a href="#" class="previous-link configurator-zdy-page__previous-link">
@@ -58,7 +58,7 @@
                 </p>
             </div>
         </div>
-        <form action="#" class="configurator-page-form" x-data="{step: 1}">
+        <form action="#" class="configurator-page-form" x-data="{step: 1}" x-on:submit.prevent="configuratorSubmitModal = true">
             <fieldset class="configurator-page-form__fieldset configurator-page-form__fieldset--step-1 configurator-page-form__fieldset--b-b-none active" x-data="{selectValue: '', inputNumberValueMin1: null, inputNumberValueMax1: null, inputNumberValueMin2: null, inputNumberValueMax2: null }" x-bind:class="{ 'active': step === 1 }">
                 <h2 class="configurator-page-form__title active" x-bind:class="{ 'active': step === 1 }">
                     <p>Шаг <span>1</span> <span>:</span></p>
@@ -244,6 +244,132 @@
                 </div>
             </fieldset>
         </form>
+    </div>
+    <div class="modal configurator-submit-modal" x-on:click.self="configuratorSubmitModal = false" x-bind:class="{ 'active': configuratorSubmitModal === true }" x-data="{step: 1, toggleCharsList: false}">
+        <div class="modal-content configurator-submit-modal__content">
+            <div class="modal__title-wrapper configurator-submit-modal__title-wrapper">
+                <h3 class="modal__title configurator-submit-modal__title" x-text="step === 1 || step === 2 ? 'Подтвердите почту' : 'Заявка отправлена'">Подтвердите почту</h3>
+                <button type="button" aria-label="button" class="btn modal__close-btn order-complete-modal__close-btn" x-on:click="configuratorSubmitModal = false">
+                  <svg class="order-complete-modal__close-btn-icon" width="15" height="15">
+                      <use href="../resources/svgSprites/svgSprite.svg#close-icon"></use>
+                  </svg>
+                </button>
+              </div>
+              <div class="configurator-submit-modal__steps">
+              <div class="configurator-submit-modal__step-1" x-show="step === 1" x-collapse.duration.800ms>
+              <div class="configurator-submit-modal__step-1-info">
+                <span>Вы указали:</span>
+                <strong>Ivan@gmail.com</strong>
+              </div>
+              <p>На вашу почту будет отправлено письмо с кодом.</p>
+            </div>
+            <div class="configurator-submit-modal__step-2" x-show="step === 2" x-collapse.duration.800ms>
+                <div class="configurator-submit-modal__step-2-info">
+                <p>Мы отправили четырёхзначный код на ivan@gmail.com+ длинный Email.</p>
+                <p>Введите код ниже, чтобы подтвердить почту.</p>
+               </div>
+               <div class="configurator-submit-modal__four-digit-code" x-data="{inputValue1: '', inputValue2: '', inputValue3: '', inputValue4: ''}">
+                <div class="configurator-submit-modal__four-digit-code-number" x-bind:class="{ 'active': inputValue1 }">
+                    <input type="number" name="number1" id="number1" x-model="inputValue1">
+                </div>
+                <div class="configurator-submit-modal__four-digit-code-number" x-bind:class="{ 'active': inputValue2 }">
+                    <input type="number" name="number2" id="number2" x-model="inputValue2">
+                </div>
+                <div class="configurator-submit-modal__four-digit-code-number" x-bind:class="{ 'active': inputValue3 }">
+                    <input type="number" name="number3" id="number3" x-model="inputValue3">
+                </div>
+                <div class="configurator-submit-modal__four-digit-code-number" x-bind:class="{ 'active': inputValue4 }">
+                    <input type="number" name="number4" id="number4" x-model="inputValue4">
+                </div>
+               </div>
+            </div>
+            <div class="configurator-submit-modal__step-3" x-show="step === 3" x-collapse.duration.800ms>
+                <div class="configurator-submit-modal__step-3-info">
+                <p>Менеджер свяжется с вами в ближайшее время.</p>
+               </div>
+               <div class="configurator-submit-modal__details">
+                 <strong>Детали заказа:</strong>
+                 <div class="configurator-submit-modal__details-row">
+                  <h3 class="configurator-submit-modal__details-title"><span>NMRV</span><span>_110</span><span>_7</span><span>,5</span><span>_132IMB5</span><span>_1SH1R</span><span>_АИР112M2</span><span>_M1</span><span>_B3</span><span>_0</span><span>_AB</span></h3>
+                  <p class="configurator-submit-modal__details-count">1 <span>шт</span></p>
+                 </div>
+                 <a href="#" download class="configurator-submit-modal__download-link">
+                <svg class="configurator-submit-modal__download-link-icon" width="17" height="18">
+                        <use href="../resources/svgSprites/svgSprite.svg#download-icon"></use>
+                    </svg>
+                    Скачать чертёж
+                 </a>
+                 <ul role="list" class="configurator-submit-modal__chars-list" x-show="toggleCharsList === true" x-collapse.duration.800ms>
+                    <li>
+                        <p>Тип передачи</p>
+                        <p>Цилиндрический</p>
+                    </li>
+                    <li>
+                        <p>Количество ступеней передачи</p>
+                        <p>Одноступенчатый</p>
+                    </li>
+                    <li>
+                        <p>Расположение осей</p>
+                        <p>Параллельное</p>
+                    </li>
+                    <li>
+                        <p>Передаточное отношение</p>
+                        <p>от 1.25 до 5.6;</p>
+                    </li>
+                    <li>
+                        <p>Номинальный крутящий момент, Н*м</p>
+                        <p>470</p>
+                    </li>
+                    <li>
+                        <p>Суммарное межосевое расстояние, мм</p>
+                        <p>80</p>
+                    </li>
+                    <li>
+                        <p>Масса, кг</p>
+                        <p>14</p>
+                    </li>
+                    <li>
+                        <p>КПД. отн.ед.</p>
+                        <p>0.97</p>
+                    </li>
+                 </ul>
+               </div>
+            </div>
+            </div>
+            <div class="configurator-submit-modal__bottom configurator-submit-modal__bottom--step-1" x-bind:class="{ 'active': step === 1 }">
+                <div class="configurator-submit-modal__step-line-wrapper">
+                    <span class="configurator-submit-modal__step-line-circle active"></span>
+                    <p class="configurator-submit-modal__step-line"></p>
+                    <span class="configurator-submit-modal__step-line-circle"></span>
+                </div>
+                <div class="configurator-submit-modal__btn-group">
+                    <button type="button" aria-label="button" class="btn btn--flat configurator-submit-modal__prev-step-btn" x-on:click="step = 1">Назад</button>
+                    <button type="button" aria-label="button" class="btn btn--primary configurator-submit-modal__next-step-btn" x-on:click="step = 2">Далее</button>
+                </div>
+            </div>
+            <div class="configurator-submit-modal__bottom configurator-submit-modal__bottom--step-2" x-bind:class="{ 'active': step === 2 }">
+                <div class="configurator-submit-modal__step-line-wrapper">
+                    <span class="configurator-submit-modal__step-line-circle"></span>
+                    <p class="configurator-submit-modal__step-line"></p>
+                    <span class="configurator-submit-modal__step-line-circle active"></span>
+                </div>
+                <div class="configurator-submit-modal__btn-group">
+                    <button type="button" aria-label="button" class="btn btn--flat configurator-submit-modal__prev-step-btn" x-on:click="step = 2">Назад</button>
+                    <button type="button" aria-label="button" class="btn btn--primary configurator-submit-modal__next-step-btn" x-on:click="step = 3">Далее</button>
+                </div>
+            </div>
+            <div class="configurator-submit-modal__bottom configurator-submit-modal__bottom--step-3" x-bind:class="{ 'active': step === 3 }">
+                <button type="button" aria-label="button" class="configurator-submit-modal__expand-btn" x-on:click="toggleCharsList = !toggleCharsList">
+                    Подробнее
+                    <svg class="configurator-submit-modal__expand-btn-icon" width="12" height="10" x-bind:class="{ 'active': toggleCharsList === true }">
+                        <use href="../resources/svgSprites/svgSprite.svg#icon-expand"></use>
+                    </svg>
+                </button>
+                <div class="configurator-submit-modal__btn-group">
+                    <a href="#" class="btn btn--primary configurator-submit-modal__btn-link">На страницу товара</a>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 </div>
