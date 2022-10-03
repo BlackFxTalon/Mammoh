@@ -59,7 +59,7 @@
             </div>
         </div>
         <form action="#" class="configurator-page-form" x-data="{step: 1}" x-on:submit.prevent="configuratorSubmitModal = true">
-            <fieldset class="configurator-page-form__fieldset configurator-page-form__fieldset--step-1 configurator-page-form__fieldset--b-b-none active" x-data="{selectValue: '', inputNumberValueMin1: null, inputNumberValueMax1: null, inputNumberValueMin2: null, inputNumberValueMax2: null }" x-bind:class="{ 'active': step === 1 }">
+            <fieldset class="configurator-page-form__fieldset configurator-page-form__fieldset--step-1 configurator-page-form__fieldset--b-b-none active" x-data="{selectValue: '', selectValue2: '', selectValue3: '', inputNumberValueMin1: null, inputNumberValueMax1: null, inputNumberValueMin2: null, inputNumberValueMax2: null }" x-bind:class="{ 'active': step === 1 }">
                 <h2 class="configurator-page-form__title active" x-bind:class="{ 'active': step === 1 }">
                     <p>Шаг <span>1</span> <span>:</span></p>
                     <p>Технические параметры</p>
@@ -67,7 +67,7 @@
                 <div class="configurator-page-form__step-body configurator-page-form__step-body-1 configurator-page-form__step-body-1--zdy-page" x-show="step === 1" x-collapse.duration.800ms>
                 <div class="configurator-page-form__controls-group configurator-page-form__controls-group--step-body-1">
                     <p class="configurator-page-form__controls-group-label"><i>i</i><span>-</span><span>передаточное отношение</span></p>
-                    <div class="configurator-page-form__select-wrapper">
+                    <div class="configurator-page-form__select-wrapper" data-tippy-content="укажите передаточное отношение" data-tippy-arrow="true" data-tippy-placement="top" data-tippy-theme="red">
                     <select name="variant" id="variant" class="configurator-page-form__select" x-model="selectValue">
                         <option value="Вариант">Вариант</option>
                         <option value="Вариант2">Вариант2</option>
@@ -142,31 +142,25 @@
                 </div>
                 <div class="configurator-page-form__controls-group configurator-page-form__controls-group--step-body-1">
                     <p class="configurator-page-form__controls-group-label"><span>Вал входной</span></p>
-                    <div class="configurator-page-form__input-number-group">
-                        <div class="configurator-page-form__input-number-wrapper configurator-page-form__input-number-wrapper--zdy-page">
-                            <p>от</p>
-                            <input type="number" name="outputSpeed" id="outputSpeedFrom" x-model="inputNumberValueMin1">
-                        </div>
-                        <div class="configurator-page-form__input-number-wrapper configurator-page-form__input-number-wrapper--zdy-page">
-                            <p>до</p>
-                            <input type="number" name="outputSpeed" id="outputSpeedTo" x-model="inputNumberValueMax1">
-                        </div>
+                    <div class="configurator-page-form__select-wrapper" data-tippy-content="укажите входной вал" data-tippy-arrow="true" data-tippy-placement="top" data-tippy-theme="red">
+                        <select name="variant" id="variant" class="configurator-page-form__select" x-model="selectValue2">
+                            <option value="Вариант">Вариант</option>
+                            <option value="Вариант2">Вариант2</option>
+                            <option value="Вариант3">Вариант3</option>
+                        </select>
                     </div>
                 </div>
                 <div class="configurator-page-form__controls-group configurator-page-form__controls-group--step-body-1">
                     <p class="configurator-page-form__controls-group-label"><span>Вал выходной</span></p>
-                    <div class="configurator-page-form__input-number-group">
-                        <div class="configurator-page-form__input-number-wrapper configurator-page-form__input-number-wrapper--zdy-page">
-                            <p>от</p>
-                            <input type="number" name="outputMoment" id="outputMomentFrom" x-model="inputNumberValueMin2">
-                        </div>
-                        <div class="configurator-page-form__input-number-wrapper configurator-page-form__input-number-wrapper--zdy-page">
-                            <p>до</p>
-                            <input type="number" name="outputMoment" id="outputMomentTo" x-model="inputNumberValueMax2">
-                        </div>
+                    <div class="configurator-page-form__select-wrapper" data-tippy-content="укажите выходной вал" data-tippy-arrow="true" data-tippy-placement="top" data-tippy-theme="red">
+                        <select name="variant" id="variant" class="configurator-page-form__select" x-model="selectValue3">
+                            <option value="Вариант">Вариант</option>
+                            <option value="Вариант2">Вариант2</option>
+                            <option value="Вариант3">Вариант3</option>
+                        </select>
                     </div>
                 </div>
-                <button type="button" aria-label="button" class="configurator-page-form__clear-btn configurator-page-form__clear-btn--zdy-page" x-on:click="selectValue = 'Вариант'; inputNumberValueMin1 = null; inputNumberValueMax1 = null; inputNumberValueMin2 = null; inputNumberValueMax2 = null; $refs.inputPowerInput.checked = true; $refs.inputSpeedInput.checked = true">
+                <button type="button" aria-label="button" class="configurator-page-form__clear-btn configurator-page-form__clear-btn--zdy-page" x-on:click="selectValue = 'Вариант'; selectValue2 = 'Вариант'; selectValue3 = 'Вариант'; inputNumberValueMin1 = null; inputNumberValueMax1 = null; inputNumberValueMin2 = null; inputNumberValueMax2 = null; $refs.inputPowerInput.checked = true; $refs.inputSpeedInput.checked = true">
                     <svg class="configurator-page-form__clear-btn-icon" width="12" height="12">
                         <use href="../resources/svgSprites/svgSprite.svg#close-icon"></use>
                     </svg>
@@ -174,7 +168,7 @@
                 </button>
                 <div class="configurator-page-form__to-next-step-checkbox" x-on:click="step = 2">
                     <input type="checkbox" name="toNextStepCheckbox" id="toNextStepCheckbox">
-                    <label for="toNextStepCheckbox">Выберите этот вариант, чтобы сразу перейти к оформлению заявки.</label>
+                    <label for="toNextStepCheckbox">Отметьте, если не знаете, что выбрать.</label>
                 </div>
                 <button type="button" aria-label="button" class="btn btn--primary configurator-page-form__to-step-2-btn" x-on:click="step = 2">Следующий шаг</button>
                 </div>
@@ -207,12 +201,28 @@
                     <textarea name="comment" id="comment">Введите текст</textarea>
                    </div>
                    <div class="form-controls-wrapper configurator-page-form__form-controls-wrapper">
+                    <div class="form-controls-wrapper__validation-wrapper">
                     <label for="name">ФИО<sup>*</sup></label>
                     <input type="text" name="name" id="name" placeholder="Ваше имя" required>
+                    <svg class="form-controls-wrapper__error-icon" width="18" height="18">
+                        <use href="../resources/svgSprites/svgSprite.svg#error-icon"></use>
+                      </svg> 
+                      <svg class="form-controls-wrapper__correct-icon" width="18" height="18">
+                        <use href="../resources/svgSprites/svgSprite.svg#correct-icon"></use>
+                      </svg> 
+                </div>
                    </div>
                    <div class="form-controls-wrapper configurator-page-form__form-controls-wrapper">
                     <label for="mail">E-mail<sup>*</sup></label>
+                    <div class="form-controls-wrapper__validation-wrapper">
                     <input type="email" name="mail" id="mail" placeholder="ivan@mail.ru" required>
+                    <svg class="form-controls-wrapper__error-icon" width="18" height="18">
+                        <use href="../resources/svgSprites/svgSprite.svg#error-icon"></use>
+                      </svg> 
+                      <svg class="form-controls-wrapper__correct-icon" width="18" height="18">
+                        <use href="../resources/svgSprites/svgSprite.svg#correct-icon"></use>
+                      </svg> 
+                </div>
                    </div>
                    <div class="form-controls-wrapper configurator-page-form__form-controls-wrapper">
                     <label for="phone">Телефон</label>
@@ -240,6 +250,7 @@
                     <input type="checkbox" name="copyright" id="copyright">
                     <label for="copyright"><a href="#">Подтверждаю согласие с политикой конфиденциальности</a></label>
                    </div>
+                   <button class="btn btn--outline configurator-page-form__to-prev-step-btn" type="button" x-on:click="step = 1">Назад</button>
                    <button type="submit" class="btn btn--primary configurator-page-form__submit-btn">Отправить заявку</button>
                 </div>
             </fieldset>
@@ -379,7 +390,11 @@
 <script src="https://unpkg.com/@popperjs/core@2" defer></script>
 <script src="https://unpkg.com/tippy.js@6" defer></script>
 <script type="module">
-    tippy('[data-tippy-content]');
-
+    tippy('[data-tippy-theme="grey"]');
+    if(window.innerWidth >= 1200) {
+        tippy(document.querySelectorAll('[data-tippy-theme="red"]'), {
+        showOnCreate: true,
+    });
+    }
 </script>
 {% endblock %}

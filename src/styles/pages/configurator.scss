@@ -937,7 +937,8 @@ line-height: 18px;
 }
     }
     
-    &__to-step-3-btn {
+    &__to-step-3-btn,
+    &__to-prev-step-btn {
 font-weight: 500;
 font-size: 15px;
 line-height: 18px;
@@ -947,6 +948,10 @@ max-width: 600px;
     margin-left: auto;
     margin-right: auto;
 }
+    }
+
+    &__to-prev-step-btn {
+        margin-bottom: 1rem;
     }
 
     &__controls-group-step-3-wrapper {

@@ -25,6 +25,11 @@
     }
 
     &__container {
+        --max-width:515px;
+
+        @include media-extra-large() {
+            margin-left: unset;
+        }
         @include media-custom(1920px) {
             padding-left: 60px;
             padding-right: 131px;
@@ -43,6 +48,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            padding-bottom: 18px;
         }
     }
 
@@ -61,12 +67,10 @@
         border-radius: 20px;
 
         @include media-medium() {
-            max-width: 525px;
             margin-bottom: 22px;
         }
 
         @include media-custom(1920px) {
-            max-width: 515px;
             margin-right: 0;
         }
     }
@@ -82,21 +86,19 @@
         @include media-medium() {
             height: 366px;
         }
+
+        @include media-extra-large() {
+            height: 232px;
+        }
     }
 
     &__main-slider-img {
         object-fit: cover;
         width: 100%;
         height: 100%;
-    }
 
-    &__thumbnails-img-slider {
-        @include media-medium() {
-            max-width: 515px;
-        }
-
-        @include media-custom(1920px) {
-            margin-right: 0;
+        @include media-extra-large() {
+            object-fit: contain;
         }
     }
 
@@ -116,6 +118,11 @@
             width: 240px;
             height: 250px;
         }
+
+        @include media-extra-large() {
+            width: 180px;
+            height: 160px;
+        }
     }
 
     &__thumbnails-slider-img {
@@ -130,7 +137,7 @@
     padding-bottom: 116px;
 
     @include media-extra-large() {
-        padding-top: 180px;
+        padding-top: 165px;
         padding-bottom: 80px;
     }
 
@@ -638,17 +645,17 @@ color: var(--dark);
     }
 }
 .product-page-order-btn {
-    min-width: 343px;
     font-weight: 500;
 font-size: 15px;
 line-height: 18px;
+min-width: 343px;
 
 @include media-medium() {
     grid-column: 2;
 }
 
 @include media-extra-large() {
-    margin-bottom: 34px;
+    margin-bottom: 29px;
 }
 
 @include media-custom(1920px) {
@@ -656,7 +663,10 @@ line-height: 18px;
     margin-left: auto;
 }
 }
-
+.product-page-order-btn:hover, .product-page-order-btn:focus {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+}
 .product-page-order-btn--desktop {
     display: none;
     @include media-extra-large() {

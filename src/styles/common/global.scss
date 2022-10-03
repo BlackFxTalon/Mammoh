@@ -84,6 +84,7 @@ select {
   --yellow-color:#E8E785;
   --red-color:#E88685;
   --error-color:#D6024B;
+  --correct-color:#029902;
 }
 body {
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -384,7 +385,7 @@ input:focus,
   input,textarea {
     width: 100%;
     background-color: transparent;
-    border: 1px solid var(--grey-light-color);
+    border: 2px solid var(--grey-light-color);
     font-family: 'Inter',sans-serif;
 font-weight: 400;
 font-size: 16px;
@@ -414,6 +415,52 @@ line-height: 20px;
     padding-right: 16px;
     padding-bottom: 8px;
 }
+
+&__validation-wrapper {
+  position: relative;
+
+  input:valid {
+    border-color: var(--correct-color);
+  }
+
+  input:valid::before {
+    opacity: 1;
+  }
+
+  input:invalid {
+    border-color: var(--error-color);
+  }
+  input:invalid::after {
+    opacity: 1;
+  }
+  input:placeholder-shown:invalid,
+  input:placeholder-shown:valid {
+    border-color: var(--grey-light-color);
+  }
+
+  input:valid ~ .form-controls-wrapper__correct-icon {
+    opacity: 1;
+  }
+
+  input:placeholder-shown:invalid ~ .form-controls-wrapper__error-icon {
+    opacity: 0;
+  }
+
+  input:invalid ~ .form-controls-wrapper__error-icon {
+    opacity: 1;
+  }
+}
+  &__error-icon,
+  &__correct-icon {
+    position: absolute;
+    right: 0;
+    margin-top: 10px;
+    margin-right: 1rem;
+    width: 18px;
+    height: 18px;
+    transition: .3s;
+    opacity: 0;
+  }
 }
 .section-title {
   font-family: 'Intro Demo',sans-serif;
@@ -592,7 +639,7 @@ line-height: 16px;
   padding: 10px 0;
   position: sticky;
   top: 0;
-  z-index: 997;
+  z-index: 99999;
   transition: .3s;
   border-bottom: 2px solid transparent;
 
@@ -601,7 +648,7 @@ line-height: 16px;
   }
 
   @include media-extra-large() {
-    padding: 22px 0;
+    padding: 13px 0;
   }
 
   &__container {
@@ -1203,7 +1250,8 @@ margin-right: auto;
   }
 }
 
-.header--index-page {
+.header--index-page,
+.header--about-company-page {
   .header__mobile-menu-btn {
 
     span {
@@ -1211,7 +1259,7 @@ margin-right: auto;
     }
   }
 
-  &__menu {
+  .header__menu {
 color: var(--white-color);
 }
 
@@ -1292,7 +1340,8 @@ color: var(--white-color);
   background-color: var(--white-color);
 }
 
-.header--index-page.header--scrolled {
+.header--index-page.header--scrolled,
+.header--about-company-page.header--scrolled {
 
   .header__mobile-menu-btn span {
     background-color: var(--dark-color);
@@ -1328,9 +1377,17 @@ color: var(--white-color);
   }
 }
 
-.header--fixed {
+.header--fixed,
+.header--about-company-page {
     position: fixed;
     width: 100%;
+}
+.header--product-page,
+.header--configurator-zdy-page {
+  @include media-extra-large() {
+    position: fixed;
+    width: 100%;
+  }
 }
 
 .header-favorites-modal {
@@ -1520,6 +1577,7 @@ line-height: 18px;
   background-color: var(--dark);
   padding: 16px 0;
   margin-top: auto;
+  position: relative;
 
   @include media-medium() {
     padding: 13px 0;

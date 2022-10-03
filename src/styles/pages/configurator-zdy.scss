@@ -52,7 +52,7 @@
 
     &__top-row {
         @include media-extra-large() {
-            padding-top: 114px;
+            padding-top: 116px;
         }
 
         @include media-custom(1920px) {
@@ -76,6 +76,10 @@
         height: 320px;
         margin-bottom: 27px;
 
+        @include media-extra-large() {
+            height: 210px;
+        }
+
         @include media-custom(1920px) {
             margin-bottom: 52px;
         }
@@ -84,7 +88,7 @@
     &__main-img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain;
     }
 
     &__info {
@@ -198,7 +202,7 @@ line-height: 54px;
     &__main-img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain;
     }
 
     &__info {
