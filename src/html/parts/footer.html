@@ -1,121 +1,124 @@
+{% if page_name === 'страница окно чертежа' %}
+{% else %}
 <div class="modal header-favorites-modal" x-bind:class="{ 'active': headerFavoritesModal === true }" x-data="{items: ['ZDY-80','ZDY-81','ZDY-82','ZDY-83']}" x-on:click.self="headerFavoritesModal = false">
-      <div class="modal-content header-favorites-modal__content">
-        <div class="header-favorites-modal__top">
-        <div class="modal__title-wrapper header-favorites-modal__title-wrapper">
-          <h3 class="modal__title header-favorites-modal__title">Вы выбрали</h3>
-          <button type="button" aria-label="button" class="btn modal__close-btn header-favorites-modal__close-btn" x-on:click="headerFavoritesModal = false">
-            <svg class="header-favorites-modal__close-btn-icon" width="15" height="15">
-                <use href="../resources/svgSprites/svgSprite.svg#close-icon"></use>
-            </svg>
-          </button>
-        </div>
-        <template x-if="items.length === 0">
-            <p class="header-favorites-modal__clear-text">Вы ещё не выбрали проекты</p>
-          </template>
-          <template x-if="items.length >= 1">
-        <ul role="list" class="header-favorites-modal__list">
-          <template x-for="item in items" :key="item">
-              <li class="header-favorites-modal__list-item">
-                  <div class="header-favorites-modal__list-item-info">
-                    <picture class="header-favorites-modal__list-item-picture">
-                        <img src="resources/images/header-favorites-menu-img.png" loading="lazy" decoding="async" alt="image" class="header-favorites-modal__list-item-img" width="52" height="52">
-                      </picture>
-                      <h4 class="header-favorites-modal__list-item-title" x-text="item">ZDY-80</h4>
-                  </div>
-                  <button type="button" aria-label="button" class="btn header-favorites-modal__clear-btn" x-on:click="items = items.filter(i => i !== item)">
-                    <svg class="header__favorites-menu-item-clear-icon" width="16" height="18">
-                        <use href="../resources/svgSprites/svgSprite.svg#header-favorites-menu-clear-icon"></use>
-                    </svg> 
-                  </button>
-              </li>
-          </template>
-        </ul>
-       </template>
-        </div>
-        <div class="header-favorites-modal__bottom">
-           <form action="#" method="post" class="modal__form header-favorites-modal__form" @submit.prevent="headerFavoritesModal = false; orderCompleteModal = true">
-              <fieldset class="header-favorites-modal__fieldset">
-                <div class="form-controls-wrapper header-favorites-modal__form-controls-wrapper">
-                    <label for="headerFavoritesModalName">ФИО <sup>*</sup></label>
-                  <input type="text" name="headerFavoritesModalName" id="headerFavoritesModalName" placeholder="Ваше имя" required>
-              </div>
-              <div class="form-controls-wrapper header-favorites-modal__form-controls-wrapper">
-                <label for="headerFavoritesModalEmail">E-mail <sup>*</sup></label>
-                <input type="email" name="headerFavoritesModalEmail" id="headerFavoritesModalEmail" placeholder="ivan@mail.ru" required>
-              </div>
-              <div class="form-controls-wrapper header-favorites-modal__form-controls-wrapper">
-                <label for="headerFavoritesModalTextarea">Комментарий к заявке</label>
-                <textarea id="headerFavoritesModalTextarea" placeholder="Введите текст"></textarea>
-              </div>
-               <button type="submit" class="btn btn--primary modal__submit-btn header-favorites-modal__submit-btn"><span>Заказать</span></button>
-              </fieldset>
-           </form>
-      </div>
+  <div class="modal-content header-favorites-modal__content">
+    <div class="header-favorites-modal__top">
+    <div class="modal__title-wrapper header-favorites-modal__title-wrapper">
+      <h3 class="modal__title header-favorites-modal__title">Вы выбрали</h3>
+      <button type="button" aria-label="button" class="btn modal__close-btn header-favorites-modal__close-btn" x-on:click="headerFavoritesModal = false">
+        <svg class="header-favorites-modal__close-btn-icon" width="15" height="15">
+            <use href="../resources/svgSprites/svgSprite.svg#close-icon"></use>
+        </svg>
+      </button>
     </div>
+    <template x-if="items.length === 0">
+        <p class="header-favorites-modal__clear-text">Вы ещё не выбрали проекты</p>
+      </template>
+      <template x-if="items.length >= 1">
+    <ul role="list" class="header-favorites-modal__list">
+      <template x-for="item in items" :key="item">
+          <li class="header-favorites-modal__list-item">
+              <div class="header-favorites-modal__list-item-info">
+                <picture class="header-favorites-modal__list-item-picture">
+                    <img src="resources/images/header-favorites-menu-img.png" loading="lazy" decoding="async" alt="image" class="header-favorites-modal__list-item-img" width="52" height="52">
+                  </picture>
+                  <h4 class="header-favorites-modal__list-item-title" x-text="item">ZDY-80</h4>
+              </div>
+              <button type="button" aria-label="button" class="btn header-favorites-modal__clear-btn" x-on:click="items = items.filter(i => i !== item)">
+                <svg class="header__favorites-menu-item-clear-icon" width="16" height="18">
+                    <use href="../resources/svgSprites/svgSprite.svg#header-favorites-menu-clear-icon"></use>
+                </svg> 
+              </button>
+          </li>
+      </template>
+    </ul>
+   </template>
+    </div>
+    <div class="header-favorites-modal__bottom">
+       <form action="#" method="post" class="modal__form header-favorites-modal__form" @submit.prevent="headerFavoritesModal = false; orderCompleteModal = true">
+          <fieldset class="header-favorites-modal__fieldset">
+            <div class="form-controls-wrapper header-favorites-modal__form-controls-wrapper">
+                <label for="headerFavoritesModalName">ФИО <sup>*</sup></label>
+              <input type="text" name="headerFavoritesModalName" id="headerFavoritesModalName" placeholder="Ваше имя" required>
+          </div>
+          <div class="form-controls-wrapper header-favorites-modal__form-controls-wrapper">
+            <label for="headerFavoritesModalEmail">E-mail <sup>*</sup></label>
+            <input type="email" name="headerFavoritesModalEmail" id="headerFavoritesModalEmail" placeholder="ivan@mail.ru" required>
+          </div>
+          <div class="form-controls-wrapper header-favorites-modal__form-controls-wrapper">
+            <label for="headerFavoritesModalTextarea">Комментарий к заявке</label>
+            <textarea id="headerFavoritesModalTextarea" placeholder="Введите текст"></textarea>
+          </div>
+           <button type="submit" class="btn btn--primary modal__submit-btn header-favorites-modal__submit-btn"><span>Заказать</span></button>
+          </fieldset>
+       </form>
+  </div>
+</div>
 </div>
 <div class="modal order-complete-modal" x-on:click.self="orderCompleteModal = false" x-bind:class="{ 'active': orderCompleteModal === true }">
-    <div class="modal-content order-complete-modal__content">
-        <div class="modal__title-wrapper order-complete-modal__title-wrapper">
-            <h3 class="modal__title order-complete-modal__title">Заявка отправлена</h3>
-            <button type="button" aria-label="button" class="btn modal__close-btn order-complete-modal__close-btn" x-on:click="orderCompleteModal = false">
-              <svg class="order-complete-modal__close-btn-icon" width="15" height="15">
-                  <use href="../resources/svgSprites/svgSprite.svg#close-icon"></use>
-              </svg>
-            </button>
-          </div>
-          <p class="order-complete-modal__text">Менеджер свяжется с вами в ближайшее время.</p>
-          <a href="#" class="btn btn--primary order-complete-modal__link">На страницу товара</a>
-    </div>
+<div class="modal-content order-complete-modal__content">
+    <div class="modal__title-wrapper order-complete-modal__title-wrapper">
+        <h3 class="modal__title order-complete-modal__title">Заявка отправлена</h3>
+        <button type="button" aria-label="button" class="btn modal__close-btn order-complete-modal__close-btn" x-on:click="orderCompleteModal = false">
+          <svg class="order-complete-modal__close-btn-icon" width="15" height="15">
+              <use href="../resources/svgSprites/svgSprite.svg#close-icon"></use>
+          </svg>
+        </button>
+      </div>
+      <p class="order-complete-modal__text">Менеджер свяжется с вами в ближайшее время.</p>
+      <a href="#" class="btn btn--primary order-complete-modal__link">На страницу товара</a>
+</div>
 </div>
 <button type="button" aria-label="button" class="to-top-btn" x-on:click="window.scrollTo(0,0)">
-  <svg class="to-top-btn__icon" width="14" height="14">
-    <use href="../resources/svgSprites/svgSprite.svg#to-top-btn-icon"></use>
+<svg class="to-top-btn__icon" width="14" height="14">
+<use href="../resources/svgSprites/svgSprite.svg#to-top-btn-icon"></use>
 </svg>
 </button>
 <button type="button" aria-label="button" class="tawk-btn">
-  <svg class="tawk-btn__icon" width="32" height="32">
-    <use href="../resources/svgSprites/svgSprite.svg#tawk-icon"></use>
+<svg class="tawk-btn__icon" width="32" height="32">
+<use href="../resources/svgSprites/svgSprite.svg#tawk-icon"></use>
 </svg>
 </button>
 <footer class="footer">
-    <div class="container footer__container">
-      <div class="footer__lang-dropdown" x-data="{langDropdownList: false, langDropdownText: 'Русский'}" x-on:click.outside="langDropdownList = false">
-        <div class="footer__lang-dropdown-top" x-on:click="langDropdownList = !langDropdownList">
-            <svg class="footer__lang-dropdown-icon" width="18" height="18">
-                <use href="../resources/svgSprites/svgSprite.svg#lang-icon-white"></use>
-            </svg>
-            <p class="footer__lang-dropdown-text" x-text="langDropdownText">Русский</p>
-            <svg class="footer__lang-dropdown-arrow" width="13" height="10" x-bind:class="{ 'active': langDropdownList === true }">
-                <use href="../resources/svgSprites/svgSprite.svg#arrow-icon-white"></use>
-            </svg>
-        </div>
-        <ul role="list" class="footer__lang-dropdown-list" x-show="langDropdownList === true" x-collapse.duration.800ms>
-           <li x-on:click="langDropdownText = 'Русский';langDropdownList = false" x-bind:class="{ 'active': langDropdownText === 'Русский' }">Русский</li>
-           <li x-on:click="langDropdownText = 'English';langDropdownList = false" x-bind:class="{ 'active': langDropdownText === 'English' }">English</li>
-           <li x-on:click="langDropdownText = 'الإمارات العربية المتحدة';langDropdownList = false" x-bind:class="{ 'active': langDropdownText === 'الإمارات العربية المتحدة' }">الإمارات العربية المتحدة</li>
-           <li x-on:click="langDropdownText = '中国';langDropdownList = false" x-bind:class="{ 'active': langDropdownText === '中国'}">中国</li>
-        </ul>
+<div class="container footer__container">
+  <div class="footer__lang-dropdown" x-data="{langDropdownList: false, langDropdownText: 'Русский'}" x-on:click.outside="langDropdownList = false">
+    <div class="footer__lang-dropdown-top" x-on:click="langDropdownList = !langDropdownList">
+        <svg class="footer__lang-dropdown-icon" width="18" height="18">
+            <use href="../resources/svgSprites/svgSprite.svg#lang-icon-white"></use>
+        </svg>
+        <p class="footer__lang-dropdown-text" x-text="langDropdownText">Русский</p>
+        <svg class="footer__lang-dropdown-arrow" width="13" height="10" x-bind:class="{ 'active': langDropdownList === true }">
+            <use href="../resources/svgSprites/svgSprite.svg#arrow-icon-white"></use>
+        </svg>
     </div>
-    <ul role="list" class="footer__media-list">
-      <li>
-        <a href="#">
-          <svg class="footer__tg-icon" width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M16.666 1.3335L0.666016 8.00016L6.56075 8.88905M16.666 1.3335L14.5608 14.6668L6.56075 8.88905M16.666 1.3335L6.56075 8.88905L16.666 1.3335ZM6.56075 8.88905V13.7779L9.29675 10.8651" fill="#FCFDFE"/>
-            <path d="M16.666 1.3335L0.666016 8.00016L6.56075 8.88905M16.666 1.3335L14.5608 14.6668L6.56075 8.88905M16.666 1.3335L6.56075 8.88905M6.56075 8.88905V13.7779L9.29675 10.8651" stroke="#FCFDFE" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <svg class="footer__vk-icon" width="20" height="13" viewBox="0 0 20 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M11.6985 12.5847V9.07219C13.8332 9.4319 14.5081 11.2887 15.8674 12.5847H19.3327C18.4663 10.447 17.1736 8.55358 15.5515 7.04615C16.7959 5.15236 18.117 3.36965 18.7631 0.666504H15.6137C14.3788 2.73486 13.7279 5.15765 11.6985 6.7552V0.666504H7.12755L8.21884 2.15826V7.47463C6.4479 7.24717 5.25131 3.66589 3.95422 0.666504H0.666016C1.8626 4.71858 4.3802 13.6109 11.6985 12.5847Z" fill="#FCFDFE"/>
-            </svg>
-        </a>
-      </li>
+    <ul role="list" class="footer__lang-dropdown-list" x-show="langDropdownList === true" x-collapse.duration.800ms>
+       <li x-on:click="langDropdownText = 'Русский';langDropdownList = false" x-bind:class="{ 'active': langDropdownText === 'Русский' }">Русский</li>
+       <li x-on:click="langDropdownText = 'English';langDropdownList = false" x-bind:class="{ 'active': langDropdownText === 'English' }">English</li>
+       <li x-on:click="langDropdownText = 'الإمارات العربية المتحدة';langDropdownList = false" x-bind:class="{ 'active': langDropdownText === 'الإمارات العربية المتحدة' }">الإمارات العربية المتحدة</li>
+       <li x-on:click="langDropdownText = '中国';langDropdownList = false" x-bind:class="{ 'active': langDropdownText === '中国'}">中国</li>
     </ul>
-    <p class="footer__copyright">
-      <span>Copyright © 2006 -2022, Mammoh. All rights reserved.</span>
-      <span>Icons (c) 2020-2022 Paweł Kuna</span>
-    </p>
-    </div>
+</div>
+<ul role="list" class="footer__media-list">
+  <li>
+    <a href="#">
+      <svg class="footer__tg-icon" width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16.666 1.3335L0.666016 8.00016L6.56075 8.88905M16.666 1.3335L14.5608 14.6668L6.56075 8.88905M16.666 1.3335L6.56075 8.88905L16.666 1.3335ZM6.56075 8.88905V13.7779L9.29675 10.8651" fill="#FCFDFE"/>
+        <path d="M16.666 1.3335L0.666016 8.00016L6.56075 8.88905M16.666 1.3335L14.5608 14.6668L6.56075 8.88905M16.666 1.3335L6.56075 8.88905M6.56075 8.88905V13.7779L9.29675 10.8651" stroke="#FCFDFE" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </a>
+  </li>
+  <li>
+    <a href="#">
+      <svg class="footer__vk-icon" width="20" height="13" viewBox="0 0 20 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11.6985 12.5847V9.07219C13.8332 9.4319 14.5081 11.2887 15.8674 12.5847H19.3327C18.4663 10.447 17.1736 8.55358 15.5515 7.04615C16.7959 5.15236 18.117 3.36965 18.7631 0.666504H15.6137C14.3788 2.73486 13.7279 5.15765 11.6985 6.7552V0.666504H7.12755L8.21884 2.15826V7.47463C6.4479 7.24717 5.25131 3.66589 3.95422 0.666504H0.666016C1.8626 4.71858 4.3802 13.6109 11.6985 12.5847Z" fill="#FCFDFE"/>
+        </svg>
+    </a>
+  </li>
+</ul>
+<p class="footer__copyright">
+  <span>Copyright © 2006 -2022, Mammoh. All rights reserved.</span>
+  <span>Icons (c) 2020-2022 Paweł Kuna</span>
+</p>
+</div>
 </footer>
+{% endif %}
