@@ -68,11 +68,11 @@
             align-items: center;
             justify-content: center;
             flex-wrap: wrap;
-            padding-bottom: 104px;
+            padding-bottom: 134px;
         }
 
         @include media-extra-large() {
-            padding-bottom: 103px;
+            padding-bottom: 233px;
         }
     }
 
@@ -261,8 +261,8 @@ line-height: 35px;
 
     &__info-picture {
         height: 184px;
-        border: 3px solid var(--primary-color);
-        filter: drop-shadow(0px 8px 0px rgba(0, 26, 32, 0.25));
+        border: 1px solid var(--primary-color);
+        box-shadow: 0px 8px 0px rgba(0, 26, 32, 0.25);
         border-radius: 20px;
         margin-top: 12px;
 

@@ -3,11 +3,11 @@ function rangeSlider1() {
     let filterRangeSlider = $(".filter-range-slider--1");
     
     filterRangeSlider.slider({
-max: 10000,
+max: 100000,
 min: 0,
-step:500,
+step:1,
 range: true,
-values: [0, 10000],
+values: [0, 100000],
 slide: (e, ui) => {
     let minSlideValue = $(".filter-range-slider--1 .ui-slider-pip-selected-1 .ui-slider-label").data('value');
     let maxSlideValue = $(".filter-range-slider--1 .ui-slider-pip-selected-2 .ui-slider-label").data('value');
@@ -49,11 +49,11 @@ function rangeSlider2() {
             
             
         filterRangeSlider.slider({
-            max: 10000,
+            max: 100000,
 min: 0,
-step:500,
+step:1,
 range: true,
-values: [0, 10000],
+values: [0, 100000],
         slide: (e, ui) => {
             let minSlideValue = $(".filter-range-slider--2 .ui-slider-pip-selected-1 .ui-slider-label").data('value');
             let maxSlideValue = $(".filter-range-slider--2 .ui-slider-pip-selected-2 .ui-slider-label").data('value');

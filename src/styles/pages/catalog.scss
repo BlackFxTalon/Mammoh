@@ -200,11 +200,13 @@ color: var(--dark);
     grid-row: 2;
     flex-direction: column;
     margin-top: auto;
+    padding-bottom: 8px;
       }
 
       @include media-extra-large() {
         grid-column: 3;
         grid-row: 1;
+        padding-bottom: 0;
       }
 
       @include media-custom(1920px) {
@@ -297,6 +299,7 @@ color: var(--dark);
       max-width: 1146px;
       margin-left: auto;
       margin-right: auto;
+      margin-top: 52px;
     }
 }
 .filter-range-slider {
@@ -332,6 +335,7 @@ line-height: 30px;
 
 @include media-custom(1920px) {
   margin-bottom: 34px;
+  margin-left: 0;
 }
     }
 
@@ -370,6 +374,7 @@ font-weight: 400;
 font-size: 18px;
 line-height: 22px;
 color: var(--dark);
+appearance: none;
     }
 
     &__input::-webkit-inner-spin-button {
@@ -382,10 +387,8 @@ color: var(--dark);
         outline: var(--blue2);
     }
 
+    &__input-max,
     &__input-min {
-        padding: 0 2rem;
-    }
-    &__input-max {
         padding:0 15px;
     }
 }

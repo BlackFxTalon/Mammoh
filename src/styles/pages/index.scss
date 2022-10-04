@@ -1,20 +1,30 @@
 /* index styles - start */
 #particles-animation-bg,
 #index-bg-2 {
-    position: fixed;
     width: 100%;
-    height: 100%;
     z-index: -1;
-    top: 0;
-    left: 0;
-    
 }
 #particles-animation-bg {
     background-color: #001A20;
+    top: 0;
+    left: 0;
+    position: fixed;
+    height: 100%;
 }
 #index-bg-2 {
     background-color: var(--blue3);
     opacity: 0;
+    bottom: 0;
+    position: absolute;
+    height: 36%;
+
+    @include media-medium() {
+        height: 49%;
+    }
+
+    @include media-extra-large() {
+        height: 43%;
+    }
 }
 
 .index-products {
@@ -228,6 +238,8 @@ color: var(--dark);
       opacity: 0;
       max-height: 0;
       transition: .4s ease-in-out;
+      justify-self: flex-end;
+       margin-right: -15px;
    }
     }
     &__link::after {
@@ -330,6 +342,20 @@ line-height: 75px;
         }
     }
 
+    &__list:first-child {
+        padding-bottom: 48px;
+        @include media-medium() {
+            padding-bottom: 0;
+        }
+    }
+
+    &__list:last-child {
+        padding-bottom: 44px;
+        @include media-medium() {
+            padding-bottom: 0;
+        }
+    }
+
     &__link {
         text-decoration: none;
         color: inherit;
@@ -360,7 +386,7 @@ line-height: 75px;
         margin-bottom: 24px;
 
         @include media-medium() {
-            margin-bottom: 32px;
+            margin-bottom: 22px;
             padding: 8px 16px;
         }
 

@@ -37,6 +37,8 @@
     &__img-picture-1 {
         height: 440px;
         margin-bottom: 80px;
+        background: url(../resources/images/about-company-main-img.jpg) no-repeat 100% -100px/cover;
+        background-attachment: fixed;
     }
 
     &__img-picture--gradient::after {
@@ -90,6 +92,8 @@
 
     &__img-picture-3 {
         height: 440px;
+        background: url(../resources/images/about-company-img-3.jpg) no-repeat center/cover;
+        background-attachment: fixed;
     }
 }
 
@@ -231,14 +235,6 @@ color: var(--dark);
 .about-company-page-cta {
     padding-top: 52px;
     padding-bottom: 80px;
-
-    @include media-extra-large() {
-        padding: 52px 0;
-    }
-
-    @include media-custom(1920px) {
-        padding-bottom: 80px;
-    }
 
     &__title {
         font-family: 'Intro Demo',sans-serif;
