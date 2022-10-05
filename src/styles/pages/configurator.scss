@@ -955,6 +955,10 @@ max-width: 600px;
         max-width: 100%;
     }
 
+    &__to-prev-step-btn--step-2 {
+        max-width: 600px;
+    }
+
     &__controls-group-step-3-wrapper {
         display: grid;
         gap: 16px;
@@ -1137,8 +1141,6 @@ sup {
         display: grid;
         align-items: center;
         grid-template-columns: repeat(3,max-content);
-        gap: 18px;
-        width: 94px;
         margin-top: 8px;
 
         input {
@@ -1147,10 +1149,10 @@ font-weight: 600;
 font-size: 16px;
 line-height: 20px;
 color: var(--dark);
-width: 20px;
+width: 35px;
 padding: 0;
-padding-left: 4px;
 border: none;
+margin-left: 14px;
         }
     }
 
