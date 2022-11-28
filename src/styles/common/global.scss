@@ -562,6 +562,11 @@ color: var(--dark);
     }
   }
 
+  &__start-link,
+  &__prev-page-link {
+    transform: rotate(180deg);
+  }
+
   &__next-page-link,
   &__end-link {
     cursor: pointer;
