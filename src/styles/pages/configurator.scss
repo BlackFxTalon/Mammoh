@@ -442,6 +442,10 @@ input:checked + button {
         transition: .3s;
     }
 
+    &__radio-list-btn--do-not-know {
+        min-width: 80px;
+    }
+
     &__radio-list-btn.disabled {
         opacity: .3;
         pointer-events: none;
