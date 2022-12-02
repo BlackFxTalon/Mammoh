@@ -31,7 +31,7 @@
 </div>
 </div>
 </aside>
-<section class="configurator-zdy-page" x-data="{configuratorSubmitModal: false, selectValue: 8, selectValue2: 'К', selectValue3: 'K', variantInputValue: 'Все', inputNumberValueMin1: null, inputNumberValueMax1: null, inputNumberValueMin2: null, inputNumberValueMax2: null }">
+<section class="configurator-zdy-page" x-data="{configuratorSubmitModal: false, selectValue: 8, selectValue2: 'К', selectValue3: 'K', variantInputValue: 'Не знаю', inputNumberValueMin1: null, inputNumberValueMax1: null, inputNumberValueMin2: null, inputNumberValueMax2: null }">
     <div class="container configurator-zdy-page__container">
         <div class="configurator-zdy-page__title-row">
             <a href="#" class="previous-link configurator-zdy-page__previous-link">
@@ -40,7 +40,7 @@
                 </svg>
             </a>
             <h1 class="section-title configurator-zdy-page__section-title">
-                1Ц2У-100-<span x-text="selectValue"></span>-<span x-text="variantInputValue === 'Все' ? '?' : variantInputValue"></span>-<span x-text="selectValue2 === 'Конический' ? 'K' : selectValue2 === 'Цилиндрический' ? 'Ц' : selectValue2"></span>-<span x-text="selectValue3 === 'Конический' ? 'K': selectValue3 === 'Цилиндрический' ? 'Ц': selectValue3 === 'Полый Шпоночный' ? 'ПШ': selectValue3 === 'Зубчатая муфта' ? 'ЗМ' : selectValue3"></span>
+                1Ц2У-100-<span x-text="selectValue"></span>-<span x-text="variantInputValue === 'Не знаю' ? '?' : variantInputValue"></span>-<span x-text="selectValue2 === 'Конический' ? 'K' : selectValue2 === 'Цилиндрический' ? 'Ц' : selectValue2"></span>-<span x-text="selectValue3 === 'Конический' ? 'K': selectValue3 === 'Цилиндрический' ? 'Ц': selectValue3 === 'Полый Шпоночный' ? 'ПШ': selectValue3 === 'Зубчатая муфта' ? 'ЗМ' : selectValue3"></span>
             </h1>
         </div>
         <div class="configurator-zdy-page__top-row">
@@ -86,8 +86,8 @@
                     <p class="configurator-page-form__controls-group-label"><span>Вариант сборки</span></p>
                     <ul role="list" class="configurator-page-form__radio-list configurator-page-form__radio-list--zdy-page">
                         <li>
-                            <input type="radio" name="inputPower" id="Все" value="Все" checked x-ref="inputPowerInput" x-model="variantInputValue">
-                            <button type="button" aria-label="button" class="configurator-page-form__radio-list-btn">Все</button>
+                            <input type="radio" name="inputPower" id="Не знаю" value="Не знаю" checked x-ref="inputPowerInput" x-model="variantInputValue">
+                            <button type="button" aria-label="button" class="configurator-page-form__radio-list-btn">Не знаю</button>
                         </li>
                         <li>
                             <input type="radio" name="inputPower" id="25" value="25" x-model="variantInputValue">
