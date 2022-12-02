@@ -418,6 +418,9 @@ input:checked + button {
     }
 
     &__radio-list--zdy-page {
+        @include media-custom(1440px) {
+            column-gap: 25px;
+        }
         @include media-custom(1920px) {
             grid-template-columns: repeat(6, max-content);
                 column-gap: 35px;
