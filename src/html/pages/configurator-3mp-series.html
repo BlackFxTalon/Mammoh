@@ -1,0 +1,837 @@
+{% set page_name = 'страница конфигуратора - 3МП-серия' %}
+{% extends "layouts/layout.html" %} 
+{% block css %}
+{% endblock %}
+{% block content %}
+<div class="configurator-zdy-page-grid" x-data="{step: 1}">
+<aside class="configurator-zdy-page-aside mp-series">
+<div class="configurator-zdy-page-aside__fixed-desktop-elems">
+{% include "./parts/breadcrumbs.html" %}
+<a href="#" class="previous-link configurator-zdy-page-aside__previous-link mp-series">
+    <svg class="previous-link__icon" width="24" height="12">
+        <use href="../resources/svgSprites/svgSprite.svg#icon-back"></use>
+    </svg>
+</a>
+<div class="configurator-zdy-page-aside__top-row mp-series">
+    <div class="configurator-zdy-page__top-row-gallery" x-show="step === 1">
+        <nav class="configurator-zdy-page__top-row-gallery-nav">
+            <h3 class="configurator-zdy-page__top-row-gallery-title">Выходной вал</h3>
+            <ul role="list" class="configurator-zdy-page__top-row-gallery-list two-cols">
+                <li class="configurator-zdy-page__top-row-gallery-list-item">
+                    <input type="radio" name="outputshaft" id="Налапах" class="configurator-zdy-page__top-row-gallery-list-item-radio" checked="">
+                    <figure class="configurator-zdy-page__top-row-gallery-list-item-card">
+                        <picture class="configurator-zdy-page__top-row-gallery-list-item-card-picture">
+                          <img src="/resources/images/configurator-zdy-page-top-row-gallery-card-img-1-output-shaft.png" loading="lazy" decoding="async" alt="image" class="configurator-zdy-page__top-row-gallery-list-item-card-img" width="151" height="200">
+                        </picture>
+                        <figcaption class="configurator-zdy-page__top-row-gallery-list-item-card-figcaption">
+                            <h4 class="configurator-zdy-page__top-row-gallery-list-item-card-title">На лапах</h4>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="configurator-zdy-page__top-row-gallery-list-item">
+                    <input type="radio" name="outputshaft" id="Сфланцем" class="configurator-zdy-page__top-row-gallery-list-item-radio" checked="">
+                    <figure class="configurator-zdy-page__top-row-gallery-list-item-card">
+                        <picture class="configurator-zdy-page__top-row-gallery-list-item-card-picture">
+                          <img src="/resources/images/configurator-zdy-page-top-row-gallery-card-img-2-output-shaft.png" loading="lazy" decoding="async" alt="image" class="configurator-zdy-page__top-row-gallery-list-item-card-img" width="151" height="200">
+                        </picture>
+                        <figcaption class="configurator-zdy-page__top-row-gallery-list-item-card-figcaption">
+                            <h4 class="configurator-zdy-page__top-row-gallery-list-item-card-title">С фланцем</h4>
+                        </figcaption>
+                    </figure>
+                </li>
+            </ul>
+        </nav>
+        <nav class="configurator-zdy-page__top-row-gallery-nav">
+            <h3 class="configurator-zdy-page__top-row-gallery-title">Выходной вал</h3>
+            <ul role="list" class="configurator-zdy-page__top-row-gallery-list three-cols">
+                <li class="configurator-zdy-page__top-row-gallery-list-item">
+                    <input type="radio" name="outputshaft2" id="111" class="configurator-zdy-page__top-row-gallery-list-item-radio" checked="">
+                    <figure class="configurator-zdy-page__top-row-gallery-list-item-card">
+                        <picture class="configurator-zdy-page__top-row-gallery-list-item-card-picture">
+                          <img src="/resources/images/configurator-zdy-page-top-row-gallery-card-img-3-output-shaft.png" loading="lazy" decoding="async" alt="image" class="configurator-zdy-page__top-row-gallery-list-item-card-img" width="151" height="200">
+                        </picture>
+                        <figcaption class="configurator-zdy-page__top-row-gallery-list-item-card-figcaption">
+                            <h4 class="configurator-zdy-page__top-row-gallery-list-item-card-title">111</h4>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="configurator-zdy-page__top-row-gallery-list-item">
+                    <input type="radio" name="outputshaft2" id="133" class="configurator-zdy-page__top-row-gallery-list-item-radio" checked="">
+                    <figure class="configurator-zdy-page__top-row-gallery-list-item-card">
+                        <picture class="configurator-zdy-page__top-row-gallery-list-item-card-picture">
+                          <img src="/resources/images/configurator-zdy-page-top-row-gallery-card-img-4-output-shaft.png" loading="lazy" decoding="async" alt="image" class="configurator-zdy-page__top-row-gallery-list-item-card-img" width="151" height="200">
+                        </picture>
+                        <figcaption class="configurator-zdy-page__top-row-gallery-list-item-card-figcaption">
+                            <h4 class="configurator-zdy-page__top-row-gallery-list-item-card-title">133</h4>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="configurator-zdy-page__top-row-gallery-list-item">
+                    <input type="radio" name="outputshaft2" id="134" class="configurator-zdy-page__top-row-gallery-list-item-radio" checked="">
+                    <figure class="configurator-zdy-page__top-row-gallery-list-item-card">
+                        <picture class="configurator-zdy-page__top-row-gallery-list-item-card-picture">
+                          <img src="/resources/images/configurator-zdy-page-top-row-gallery-card-img-5-output-shaft.png" loading="lazy" decoding="async" alt="image" class="configurator-zdy-page__top-row-gallery-list-item-card-img" width="151" height="200">
+                        </picture>
+                        <figcaption class="configurator-zdy-page__top-row-gallery-list-item-card-figcaption">
+                            <h4 class="configurator-zdy-page__top-row-gallery-list-item-card-title">134</h4>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="configurator-zdy-page__top-row-gallery-list-item">
+                    <input type="radio" name="outputshaft2" id="121" class="configurator-zdy-page__top-row-gallery-list-item-radio" checked="">
+                    <figure class="configurator-zdy-page__top-row-gallery-list-item-card">
+                        <picture class="configurator-zdy-page__top-row-gallery-list-item-card-picture">
+                          <img src="/resources/images/configurator-zdy-page-top-row-gallery-card-img-6-output-shaft.png" loading="lazy" decoding="async" alt="image" class="configurator-zdy-page__top-row-gallery-list-item-card-img" width="151" height="200">
+                        </picture>
+                        <figcaption class="configurator-zdy-page__top-row-gallery-list-item-card-figcaption">
+                            <h4 class="configurator-zdy-page__top-row-gallery-list-item-card-title">121</h4>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="configurator-zdy-page__top-row-gallery-list-item">
+                    <input type="radio" name="outputshaft2" id="132" class="configurator-zdy-page__top-row-gallery-list-item-radio" checked="">
+                    <figure class="configurator-zdy-page__top-row-gallery-list-item-card">
+                        <picture class="configurator-zdy-page__top-row-gallery-list-item-card-picture">
+                          <img src="/resources/images/configurator-zdy-page-top-row-gallery-card-img-7-output-shaft.png" loading="lazy" decoding="async" alt="image" class="configurator-zdy-page__top-row-gallery-list-item-card-img" width="151" height="200">
+                        </picture>
+                        <figcaption class="configurator-zdy-page__top-row-gallery-list-item-card-figcaption">
+                            <h4 class="configurator-zdy-page__top-row-gallery-list-item-card-title">132</h4>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="configurator-zdy-page__top-row-gallery-list-item">
+                    <input type="radio" name="outputshaft2" id="131" class="configurator-zdy-page__top-row-gallery-list-item-radio" checked="">
+                    <figure class="configurator-zdy-page__top-row-gallery-list-item-card">
+                        <picture class="configurator-zdy-page__top-row-gallery-list-item-card-picture">
+                          <img src="/resources/images/configurator-zdy-page-top-row-gallery-card-img-8-output-shaft.png" loading="lazy" decoding="async" alt="image" class="configurator-zdy-page__top-row-gallery-list-item-card-img" width="151" height="200">
+                        </picture>
+                        <figcaption class="configurator-zdy-page__top-row-gallery-list-item-card-figcaption">
+                            <h4 class="configurator-zdy-page__top-row-gallery-list-item-card-title">131</h4>
+                        </figcaption>
+                    </figure>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="configurator-zdy-page-aside__top-row-info" x-show="step === 2" x-data="{toggleDropdown: true}">
+        <picture class="configurator-zdy-page__main-img-picture mp-series">
+          <img src="/resources/images/configurator-zdy-main-img.png" loading="lazy" decoding="async" alt="image" class="configurator-zdy-page__main-img" width="315" height="100">
+        </picture>
+        <div class="configurator-page-form__controls-group-step-3-wrapper" x-show="toggleDropdown === true" x-collapse.duration.800ms>
+            <div class="configurator-page-form__controls-group">
+                <ul role="list" class="configurator-page-form__step-3-list">
+                    <li>
+                        <strong>Выбран червячный редуктор:</strong>
+                        <strong>NMRV</strong>
+                    </li>
+                    <li>
+                        <p>Типоразмер (габарит):</p>
+                        <p>110</p>
+                    </li>
+                    <li>
+                        <p>i-передаточное отногшение:</p>
+                        <p>7,5</p>
+                    </li>
+                    <li>
+                        <a href="#" class="configurator-page-form__step-3-link">
+                            <svg class="configurator-page-form__step-3-link-icon" width="15" height="15">
+                                <use href="../resources/svgSprites/svgSprite.svg#icon-pen-blue"></use>
+                            </svg>
+                            чертёж редуктора
+                        </a>
+                    </li>
+                </ul>
+                <ul role="list" class="configurator-page-form__step-3-list">
+                    <li>
+                        <strong>Входной фланец:</strong>
+                        <strong>112IM3081</strong>
+                    </li>
+                    <li>
+                        <p>Аналог DIN:</p>
+                        <p>132IMB5</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="configurator-page-form__controls-group">
+                <ul role="list" class="configurator-page-form__step-3-list">
+                    <li>
+                        <strong>Электродвигатель:</strong>
+                        <strong>АИР112М2</strong>
+                    </li>
+                    <li>
+                        <p>Число полюсов:</p>
+                        <p>2</p>
+                    </li>
+                    <li>
+                        <p>Синхр.скорость:</p>
+                        <p>3000 <span>(об/мин)</span></p>
+                    </li>
+                    <li>
+                        <p>Факт. норм. скорость:</p>
+                        <p>2880 <span>(об/мин)</span></p>
+                    </li>
+                    <li>
+                        <p>Положение распред. коробки двигателя:</p>
+                        <p>М1</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="configurator-page-form__controls-group">
+                <ul role="list" class="configurator-page-form__step-3-list">
+                    <li>
+                        <strong>Фактические режимы эксплуатации редуктора</strong>
+                    </li>
+                    <li>
+                        <p><span>Р1 </span> - <span> мощность на входе:</span></p>
+                        <p>7,5 <span>(кВт)</span></p>
+                    </li>
+                    <li>
+                        <p><span>n1 </span> - <span> скорость на входе:</span></p>
+                        <p>2880 <span>(об/мин)</span></p>
+                    </li>
+                    <li>
+                        <p><span>n2 </span> - <span> скорость на выходе:</span></p>
+                        <p>384 <span>(об/мин)</span></p>
+                    </li>
+                    <li>
+                        <p><span>M2 </span> - <span> момент на выходе:</span></p>
+                        <p>171,6 <span>(Н*м)</span></p>
+                    </li>
+                    <li>
+                        <p><span>Sf </span> - <span> сервис фактор:</span></p>
+                        <p>= <span>2,3</span></p>
+                    </li>
+                </ul>
+            </div>
+            <div class="configurator-page-form__controls-group">
+                <ul role="list" class="configurator-page-form__step-3-list">
+                    <li>
+                        <strong>Выходной вал:</strong>
+                        <strong>АВ</strong>
+                    </li>
+                    <li>
+                        <a href="#" class="configurator-page-form__step-3-link">
+                            <svg class="configurator-page-form__step-3-link-icon" width="15" height="15">
+                                <use href="../resources/svgSprites/svgSprite.svg#icon-pen-blue"></use>
+                            </svg>
+                            чертёж редуктора
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="configurator-page-form__controls-group">
+                <ul role="list" class="configurator-page-form__step-3-list">
+                    <li>
+                        <strong>Положение редуктора:</strong>
+                        <strong>B3</strong>
+                    </li>
+                </ul>
+            </div>
+           </div>
+           <button type="button" aria-label="button" class="configurator-page-form__expand-step-3-btn" x-on:click="toggleDropdown = !toggleDropdown">
+            Подробнее
+            <svg class="configurator-page-form__expand-step-3-btn-icon" width="12" height="12" x-bind:class="{ 'active': toggleDropdown === true }">
+                <use href="../resources/svgSprites/svgSprite.svg#icon-expand"></use>
+            </svg>
+           </button>
+    </div>
+</div>
+</div>
+</aside>
+<section class="configurator-zdy-page mp-series" x-data="{configuratorSubmitModal: false, selectValue: 8, selectValue2: 'К', selectValue3: 'K', variantInputValue: 'Не знаю', inputNumberValueMin1: null, inputNumberValueMax1: null, inputNumberValueMin2: null, inputNumberValueMax2: null }">
+    <div class="container configurator-zdy-page__container">
+        <div class="configurator-zdy-page__title-row">
+            <a href="#" class="previous-link configurator-zdy-page__previous-link">
+                <svg class="previous-link__icon" width="24" height="12">
+                    <use href="../resources/svgSprites/svgSprite.svg#icon-back"></use>
+                </svg>
+            </a>
+            <h1 class="section-title configurator-zdy-page__section-title">
+                1Ц2У-100-<span x-text="selectValue"></span>-<span x-text="variantInputValue === 'Не знаю' ? '?' : variantInputValue"></span>-<span x-text="selectValue2 === 'Конический' ? 'K' : selectValue2 === 'Цилиндрический' ? 'Ц' : selectValue2"></span>-<span x-text="selectValue3 === 'Конический' ? 'K': selectValue3 === 'Цилиндрический' ? 'Ц': selectValue3 === 'Полый Шпоночный' ? 'ПШ': selectValue3 === 'Зубчатая муфта' ? 'ЗМ' : selectValue3"></span>
+            </h1>
+        </div>
+        <div class="configurator-zdy-page__top-row" x-show="step === 1">    
+            <div class="configurator-zdy-page__top-row-gallery">
+                <nav class="configurator-zdy-page__top-row-gallery-nav">
+                    <h3 class="configurator-zdy-page__top-row-gallery-title">Выходной вал</h3>
+                    <ul role="list" class="configurator-zdy-page__top-row-gallery-list two-cols">
+                        <li class="configurator-zdy-page__top-row-gallery-list-item">
+                            <input type="radio" name="outputshaft" id="Налапах" class="configurator-zdy-page__top-row-gallery-list-item-radio" checked>
+                            <figure class="configurator-zdy-page__top-row-gallery-list-item-card">
+                                <picture class="configurator-zdy-page__top-row-gallery-list-item-card-picture">
+                                  <img src="/resources/images/configurator-zdy-page-top-row-gallery-card-img-1-output-shaft.png" loading="lazy" decoding="async" alt="image" class="configurator-zdy-page__top-row-gallery-list-item-card-img" width="151" height="200">
+                                </picture>
+                                <figcaption class="configurator-zdy-page__top-row-gallery-list-item-card-figcaption">
+                                    <h4 class="configurator-zdy-page__top-row-gallery-list-item-card-title">На лапах</h4>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="configurator-zdy-page__top-row-gallery-list-item">
+                            <input type="radio" name="outputshaft" id="Сфланцем" class="configurator-zdy-page__top-row-gallery-list-item-radio" checked>
+                            <figure class="configurator-zdy-page__top-row-gallery-list-item-card">
+                                <picture class="configurator-zdy-page__top-row-gallery-list-item-card-picture">
+                                  <img src="/resources/images/configurator-zdy-page-top-row-gallery-card-img-2-output-shaft.png" loading="lazy" decoding="async" alt="image" class="configurator-zdy-page__top-row-gallery-list-item-card-img" width="151" height="200">
+                                </picture>
+                                <figcaption class="configurator-zdy-page__top-row-gallery-list-item-card-figcaption">
+                                    <h4 class="configurator-zdy-page__top-row-gallery-list-item-card-title">С фланцем</h4>
+                                </figcaption>
+                            </figure>
+                        </li>
+                    </ul>
+                </nav>
+                <nav class="configurator-zdy-page__top-row-gallery-nav">
+                    <h3 class="configurator-zdy-page__top-row-gallery-title">Выходной вал</h3>
+                    <ul role="list" class="configurator-zdy-page__top-row-gallery-list three-cols">
+                        <li class="configurator-zdy-page__top-row-gallery-list-item">
+                            <input type="radio" name="outputshaft2" id="111" class="configurator-zdy-page__top-row-gallery-list-item-radio" checked>
+                            <figure class="configurator-zdy-page__top-row-gallery-list-item-card">
+                                <picture class="configurator-zdy-page__top-row-gallery-list-item-card-picture">
+                                  <img src="/resources/images/configurator-zdy-page-top-row-gallery-card-img-3-output-shaft.png" loading="lazy" decoding="async" alt="image" class="configurator-zdy-page__top-row-gallery-list-item-card-img" width="151" height="200">
+                                </picture>
+                                <figcaption class="configurator-zdy-page__top-row-gallery-list-item-card-figcaption">
+                                    <h4 class="configurator-zdy-page__top-row-gallery-list-item-card-title">111</h4>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="configurator-zdy-page__top-row-gallery-list-item">
+                            <input type="radio" name="outputshaft2" id="133" class="configurator-zdy-page__top-row-gallery-list-item-radio" checked>
+                            <figure class="configurator-zdy-page__top-row-gallery-list-item-card">
+                                <picture class="configurator-zdy-page__top-row-gallery-list-item-card-picture">
+                                  <img src="/resources/images/configurator-zdy-page-top-row-gallery-card-img-4-output-shaft.png" loading="lazy" decoding="async" alt="image" class="configurator-zdy-page__top-row-gallery-list-item-card-img" width="151" height="200">
+                                </picture>
+                                <figcaption class="configurator-zdy-page__top-row-gallery-list-item-card-figcaption">
+                                    <h4 class="configurator-zdy-page__top-row-gallery-list-item-card-title">133</h4>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="configurator-zdy-page__top-row-gallery-list-item">
+                            <input type="radio" name="outputshaft2" id="134" class="configurator-zdy-page__top-row-gallery-list-item-radio" checked>
+                            <figure class="configurator-zdy-page__top-row-gallery-list-item-card">
+                                <picture class="configurator-zdy-page__top-row-gallery-list-item-card-picture">
+                                  <img src="/resources/images/configurator-zdy-page-top-row-gallery-card-img-5-output-shaft.png" loading="lazy" decoding="async" alt="image" class="configurator-zdy-page__top-row-gallery-list-item-card-img" width="151" height="200">
+                                </picture>
+                                <figcaption class="configurator-zdy-page__top-row-gallery-list-item-card-figcaption">
+                                    <h4 class="configurator-zdy-page__top-row-gallery-list-item-card-title">134</h4>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="configurator-zdy-page__top-row-gallery-list-item">
+                            <input type="radio" name="outputshaft2" id="121" class="configurator-zdy-page__top-row-gallery-list-item-radio" checked>
+                            <figure class="configurator-zdy-page__top-row-gallery-list-item-card">
+                                <picture class="configurator-zdy-page__top-row-gallery-list-item-card-picture">
+                                  <img src="/resources/images/configurator-zdy-page-top-row-gallery-card-img-6-output-shaft.png" loading="lazy" decoding="async" alt="image" class="configurator-zdy-page__top-row-gallery-list-item-card-img" width="151" height="200">
+                                </picture>
+                                <figcaption class="configurator-zdy-page__top-row-gallery-list-item-card-figcaption">
+                                    <h4 class="configurator-zdy-page__top-row-gallery-list-item-card-title">121</h4>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="configurator-zdy-page__top-row-gallery-list-item">
+                            <input type="radio" name="outputshaft2" id="132" class="configurator-zdy-page__top-row-gallery-list-item-radio" checked>
+                            <figure class="configurator-zdy-page__top-row-gallery-list-item-card">
+                                <picture class="configurator-zdy-page__top-row-gallery-list-item-card-picture">
+                                  <img src="/resources/images/configurator-zdy-page-top-row-gallery-card-img-7-output-shaft.png" loading="lazy" decoding="async" alt="image" class="configurator-zdy-page__top-row-gallery-list-item-card-img" width="151" height="200">
+                                </picture>
+                                <figcaption class="configurator-zdy-page__top-row-gallery-list-item-card-figcaption">
+                                    <h4 class="configurator-zdy-page__top-row-gallery-list-item-card-title">132</h4>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="configurator-zdy-page__top-row-gallery-list-item">
+                            <input type="radio" name="outputshaft2" id="131" class="configurator-zdy-page__top-row-gallery-list-item-radio" checked>
+                            <figure class="configurator-zdy-page__top-row-gallery-list-item-card">
+                                <picture class="configurator-zdy-page__top-row-gallery-list-item-card-picture">
+                                  <img src="/resources/images/configurator-zdy-page-top-row-gallery-card-img-8-output-shaft.png" loading="lazy" decoding="async" alt="image" class="configurator-zdy-page__top-row-gallery-list-item-card-img" width="151" height="200">
+                                </picture>
+                                <figcaption class="configurator-zdy-page__top-row-gallery-list-item-card-figcaption">
+                                    <h4 class="configurator-zdy-page__top-row-gallery-list-item-card-title">131</h4>
+                                </figcaption>
+                            </figure>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="configurator-zdy-page__top-row" x-show="step === 2" x-data="{toggleDropdown: true}">
+            <picture class="configurator-zdy-page__main-img-picture mp-series">
+              <img src="/resources/images/configurator-zdy-main-img.png" loading="lazy" decoding="async" alt="image" class="configurator-zdy-page__main-img" width="315" height="100">
+            </picture>
+            <div class="configurator-page-form__controls-group-step-3-wrapper" x-show="toggleDropdown === true" x-collapse.duration.800ms>
+                <div class="configurator-page-form__controls-group">
+                    <ul role="list" class="configurator-page-form__step-3-list">
+                        <li>
+                            <strong>Выбран червячный редуктор:</strong>
+                            <strong>NMRV</strong>
+                        </li>
+                        <li>
+                            <p>Типоразмер (габарит):</p>
+                            <p>110</p>
+                        </li>
+                        <li>
+                            <p>i-передаточное отногшение:</p>
+                            <p>7,5</p>
+                        </li>
+                        <li>
+                            <a href="#" class="configurator-page-form__step-3-link">
+                                <svg class="configurator-page-form__step-3-link-icon" width="15" height="15">
+                                    <use href="../resources/svgSprites/svgSprite.svg#icon-pen-blue"></use>
+                                </svg>
+                                чертёж редуктора
+                            </a>
+                        </li>
+                    </ul>
+                    <ul role="list" class="configurator-page-form__step-3-list">
+                        <li>
+                            <strong>Входной фланец:</strong>
+                            <strong>112IM3081</strong>
+                        </li>
+                        <li>
+                            <p>Аналог DIN:</p>
+                            <p>132IMB5</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="configurator-page-form__controls-group">
+                    <ul role="list" class="configurator-page-form__step-3-list">
+                        <li>
+                            <strong>Электродвигатель:</strong>
+                            <strong>АИР112М2</strong>
+                        </li>
+                        <li>
+                            <p>Число полюсов:</p>
+                            <p>2</p>
+                        </li>
+                        <li>
+                            <p>Синхр.скорость:</p>
+                            <p>3000 <span>(об/мин)</span></p>
+                        </li>
+                        <li>
+                            <p>Факт. норм. скорость:</p>
+                            <p>2880 <span>(об/мин)</span></p>
+                        </li>
+                        <li>
+                            <p>Положение распред. коробки двигателя:</p>
+                            <p>М1</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="configurator-page-form__controls-group">
+                    <ul role="list" class="configurator-page-form__step-3-list">
+                        <li>
+                            <strong>Фактические режимы эксплуатации редуктора</strong>
+                        </li>
+                        <li>
+                            <p><span>Р1 </span> - <span> мощность на входе:</span></p>
+                            <p>7,5 <span>(кВт)</span></p>
+                        </li>
+                        <li>
+                            <p><span>n1 </span> - <span> скорость на входе:</span></p>
+                            <p>2880 <span>(об/мин)</span></p>
+                        </li>
+                        <li>
+                            <p><span>n2 </span> - <span> скорость на выходе:</span></p>
+                            <p>384 <span>(об/мин)</span></p>
+                        </li>
+                        <li>
+                            <p><span>M2 </span> - <span> момент на выходе:</span></p>
+                            <p>171,6 <span>(Н*м)</span></p>
+                        </li>
+                        <li>
+                            <p><span>Sf </span> - <span> сервис фактор:</span></p>
+                            <p>= <span>2,3</span></p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="configurator-page-form__controls-group">
+                    <ul role="list" class="configurator-page-form__step-3-list">
+                        <li>
+                            <strong>Выходной вал:</strong>
+                            <strong>АВ</strong>
+                        </li>
+                        <li>
+                            <a href="#" class="configurator-page-form__step-3-link">
+                                <svg class="configurator-page-form__step-3-link-icon" width="15" height="15">
+                                    <use href="../resources/svgSprites/svgSprite.svg#icon-pen-blue"></use>
+                                </svg>
+                                чертёж редуктора
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="configurator-page-form__controls-group">
+                    <ul role="list" class="configurator-page-form__step-3-list">
+                        <li>
+                            <strong>Положение редуктора:</strong>
+                            <strong>B3</strong>
+                        </li>
+                    </ul>
+                </div>
+               </div>
+               <button type="button" aria-label="button" class="configurator-page-form__expand-step-3-btn" x-on:click="toggleDropdown = !toggleDropdown">
+                Подробнее
+                <svg class="configurator-page-form__expand-step-3-btn-icon" width="12" height="12" x-bind:class="{ 'active': toggleDropdown === true }">
+                    <use href="../resources/svgSprites/svgSprite.svg#icon-expand"></use>
+                </svg>
+               </button>
+        </div>
+        <form action="#" class="configurator-page-form" x-on:submit.prevent="configuratorSubmitModal = true">
+            <fieldset class="configurator-page-form__fieldset configurator-page-form__fieldset--step-1 configurator-page-form__fieldset--b-b-none active" x-bind:class="{ 'active': step === 1 }">
+                <h2 class="configurator-page-form__title active" x-bind:class="{ 'active': step === 1 }">
+                    <p>Шаг <span>1</span> <span>:</span></p>
+                    <p>Технические параметры</p>
+                </h2>
+                <div class="configurator-page-form__step-body configurator-page-form__step-body-1 mp-series" x-show="step === 1" x-collapse.duration.800ms>
+                    <strong>Подберите редуктор по техническим параметрам из вариантов в таблице.Учитывайте сервис-фактор (Sf), как коэффициент отражающий реальные условия эксплуатации редуктор</strong>
+                    <div class="configurator-page-form__chars-table-wrapper">
+                        <table class="configurator-page-form__chars-table mp-series">
+                            <thead>
+                                <tr>
+                                    <th>Габарит</th>
+                                    <th>P1</th>
+                                    <th>n2</th>
+                                    <th>M2</th>
+                                    <th>Sf</th>
+                                    <th>Мотор</th>
+                                    <th>Мотор</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <template x-for="i in 2">
+                                    <tr>
+                                        <td>
+                                            <div class="configurator-page-form__chars-table-select-wrapper">
+                                                <select class="configurator-page-form__chars-table-select">
+                                                    <option value="Все" class="configurator-page-form__chars-table-select-option">Все</option>
+                                                    <option value="Все1" class="configurator-page-form__chars-table-select-option">Все1</option>
+                                                    <option value="Все3" class="configurator-page-form__chars-table-select-option">Все3</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="configurator-page-form__chars-table-select-wrapper">
+                                                <select class="configurator-page-form__chars-table-select">
+                                                    <option value="Все" class="configurator-page-form__chars-table-select-option">Все</option>
+                                                    <option value="Все1" class="configurator-page-form__chars-table-select-option">Все1</option>
+                                                    <option value="Все3" class="configurator-page-form__chars-table-select-option">Все3</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="configurator-page-form__chars-table-number-inputs-wrapper">
+                                                <div class="configurator-page-form__chars-table-number-input-wrapper">
+                                                <input type="number" class="configurator-page-form__chars-table-number-input" placeholder="От">
+                                                </div>
+                                                <div class="configurator-page-form__chars-table-number-inputs-separator">-</div>
+                                                <div class="configurator-page-form__chars-table-number-input-wrapper">
+                                                <input type="number" class="configurator-page-form__chars-table-number-input" placeholder="До">
+                                                 </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="configurator-page-form__chars-table-number-inputs-wrapper">
+                                                <div class="configurator-page-form__chars-table-number-input-wrapper">
+                                                <input type="number" class="configurator-page-form__chars-table-number-input" placeholder="От">
+                                                </div>
+                                                <div class="configurator-page-form__chars-table-number-inputs-separator">-</div>
+                                                <div class="configurator-page-form__chars-table-number-input-wrapper">
+                                                <input type="number" class="configurator-page-form__chars-table-number-input" placeholder="До">
+                                                 </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="configurator-page-form__chars-table-number-inputs-wrapper">
+                                                <div class="configurator-page-form__chars-table-number-input-wrapper">
+                                                <input type="number" class="configurator-page-form__chars-table-number-input" placeholder="От">
+                                                </div>
+                                                <div class="configurator-page-form__chars-table-number-inputs-separator">-</div>
+                                                <div class="configurator-page-form__chars-table-number-input-wrapper">
+                                                <input type="number" class="configurator-page-form__chars-table-number-input" placeholder="До">
+                                                 </div>
+                                            </div>
+                                        </td>
+                                        <td>Мотор</td>
+                                        <td>1348 поз.</td>
+                                    </tr>
+                                </template>
+                                <template x-for="i in 2">
+                                    <tr>
+                                        <td>110</td>
+                                        <td>7,5</td>
+                                        <td>384</td>
+                                        <td>171,6</td>
+                                        <td class="configurator-page-form__service-factor-green">2,3</td>
+                                        <td>АИР112М2</td>
+                                        <td><button type="button" class="configurator-page-form__step-1-choose-btn" x-on:click="step = 2">выбрать</button></td>
+                                    </tr>
+                                </template>
+                                <template x-for="i in 2">
+                                    <tr>
+                                        <td>110</td>
+                                        <td>7,5</td>
+                                        <td>384</td>
+                                        <td>171,6</td>
+                                        <td class="configurator-page-form__service-factor-yellow">2,3</td>
+                                        <td>АИР112М2</td>
+                                        <td><button type="button" class="configurator-page-form__step-1-choose-btn" x-on:click="step = 2">выбрать</button></td>
+                                    </tr>
+                                </template>
+                                <template x-for="i in 5">
+                                    <tr>
+                                        <td>110</td>
+                                        <td>7,5</td>
+                                        <td>384</td>
+                                        <td>171,6</td>
+                                        <td class="configurator-page-form__service-factor-green">2,3</td>
+                                        <td>АИР112М2</td>
+                                        <td><button type="button" class="configurator-page-form__step-1-choose-btn" x-on:click="step = 2">выбрать</button></td>
+                                    </tr>
+                                </template>
+                                <tr>
+                                    <td>110</td>
+                                    <td>7,5</td>
+                                    <td>384</td>
+                                    <td>171,6</td>
+                                    <td class="configurator-page-form__service-factor-red">2,3</td>
+                                    <td>АИР112М2</td>
+                                    <td><button type="button" class="configurator-page-form__step-1-choose-btn" x-on:click="step = 2">выбрать</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        </div>
+                        <div class="configurator-page-form__step-1-bottom mp-series">
+                            <div class="configurator-page-form__service-factor-page-links mp-series">
+                                <a href="#">Применение</a>
+                                <a href="#" class="configurator-page-form__service-factor-green">A</a>
+                                <a href="#" class="configurator-page-form__service-factor-yellow">B</a>
+                                <a href="#" class="configurator-page-form__service-factor-red">C</a>
+                            </div>
+                            {% include "./parts/pagination.html" %}
+                        </div>
+                <button type="button" aria-label="button" class="btn btn--primary configurator-page-form__to-step-2-btn" x-on:click="step = 2">Следующий шаг</button>
+                </div>
+            </fieldset>
+            <fieldset class="configurator-page-form__fieldset configurator-page-form__fieldset--step-2" x-bind:class="{ 'active': step === 2 }">
+                <h2 class="configurator-page-form__title" x-bind:class="{ 'active': step === 2 }">
+                    <p>Шаг <span>2</span> <span>:</span></p>
+                    <p>Оформление заявки</p>
+                </h2>
+                <div class="configurator-page-form__step-body configurator-page-form__step-body-2 configurator-page-form__step-body-2--zdy-page" x-show="step === 2" x-collapse.duration.800ms>
+                   <h3 class="section-title configurator-page-form__full-name-title"><span>NMRV</span><span>_110</span><span>_7,5</span><span>_132IMB5</span><span>_1SH1R</span><span>_АИР112M2</span><span>_M1</span><span>_B3</span><span>_0</span><span>_AB</span></span></h3>
+                   <div class="form-controls-wrapper configurator-page-form__form-controls-wrapper configurator-page-form__form-controls-wrapper--reductor-count">
+                    <label>Кол-во редукторов<sup>*</sup></label>
+                    <div class="configurator-page-form__counter" x-data="{counter: 1}">
+                        <button type="button" aria-label="button" class="configurator-page-form__counter-minus" x-on:click="counter--" x-bind:class="{ 'disabled': counter === 1 }">
+                            <svg class="configurator-page-form__counter-minus-icon" width="16" height="11">
+                                <use href="../resources/svgSprites/svgSprite.svg#icon-minus"></use>
+                            </svg> 
+                        </button>
+                        <input type="number" name="reductorsCount" id="reductorsCount" disabled x-model="counter">
+                        <button type="button" aria-label="button" class="configurator-page-form__counter-plus" x-on:click="counter++">
+                            <svg class="configurator-page-form__counter-plus-icon" width="16" height="15">
+                                <use href="../resources/svgSprites/svgSprite.svg#icon-plus"></use>
+                            </svg> 
+                        </button>
+                    </div>
+                   </div>
+                   <div class="form-controls-wrapper configurator-page-form__form-controls-wrapper configurator-page-form__form-controls-wrapper--textarea">
+                    <label for="comment">Комментарий к заявке</label>
+                    <textarea name="comment" id="comment">Введите текст</textarea>
+                   </div>
+                   <div class="form-controls-wrapper configurator-page-form__form-controls-wrapper">
+                    <div class="form-controls-wrapper__validation-wrapper">
+                    <label for="name">ФИО<sup>*</sup></label>
+                    <input type="text" name="name" id="name" placeholder="Ваше имя" required>
+                    <svg class="form-controls-wrapper__error-icon" width="18" height="18">
+                        <use href="../resources/svgSprites/svgSprite.svg#error-icon"></use>
+                      </svg> 
+                      <svg class="form-controls-wrapper__correct-icon" width="18" height="18">
+                        <use href="../resources/svgSprites/svgSprite.svg#correct-icon"></use>
+                      </svg> 
+                </div>
+                   </div>
+                   <div class="form-controls-wrapper configurator-page-form__form-controls-wrapper">
+                    <label for="mail">E-mail<sup>*</sup></label>
+                    <div class="form-controls-wrapper__validation-wrapper">
+                    <input type="email" name="mail" id="mail" placeholder="ivan@mail.ru" required>
+                    <svg class="form-controls-wrapper__error-icon" width="18" height="18">
+                        <use href="../resources/svgSprites/svgSprite.svg#error-icon"></use>
+                      </svg> 
+                      <svg class="form-controls-wrapper__correct-icon" width="18" height="18">
+                        <use href="../resources/svgSprites/svgSprite.svg#correct-icon"></use>
+                      </svg> 
+                </div>
+                   </div>
+                   <div class="form-controls-wrapper configurator-page-form__form-controls-wrapper">
+                    <label for="phone">Телефон</label>
+                    <div class="configurator-page-form__phonecode-grid">
+                       <div class="configurator-page-form__phonecode-wrapper">
+                     <select name="phonecode" id="phonecode">
+                        <option value="+86">+86</option>
+                        <option value="+7">+7</option>
+                        <option value="+90">+90</option>
+                     </select>
+                    </div> 
+                    <input type="tel" name="phone" id="phone" placeholder="999-99-99-99" x-mask="999-99-99-99">
+                    </div>
+                   </div>
+                   <div class="form-controls-wrapper configurator-page-form__form-controls-wrapper">
+                    <label for="captcha">Код с картинки<sup>*</sup></label>
+                    <div class="configurator-page-form__captcha-grid">
+                        <div class="configurator-page-form__captcha-img">
+                        <img loading="lazy" decoding="async" src="/resources/images/captcha-img.png" alt="image" width="31" height="24">
+                       </div>
+                       <input type="text" name="captcha" id="captcha" placeholder="Введите код" required>
+                    </div>
+                   </div>
+                   <div class="configurator-page-form__copyright">
+                    <input type="checkbox" name="copyright" id="copyright">
+                    <label for="copyright"><a href="#">Подтверждаю согласие с политикой конфиденциальности</a></label>
+                   </div>
+                   <button class="btn btn--outline configurator-page-form__to-prev-step-btn" type="button" x-on:click="step = 1">Назад</button>
+                   <button type="submit" class="btn btn--primary configurator-page-form__submit-btn">Отправить заявку</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div class="modal configurator-submit-modal" x-on:click.self="configuratorSubmitModal = false" x-bind:class="{ 'active': configuratorSubmitModal === true }" x-data="{step: 1, toggleCharsList: false}">
+        <div class="modal-content configurator-submit-modal__content">
+            <div class="modal__title-wrapper configurator-submit-modal__title-wrapper">
+                <h3 class="modal__title configurator-submit-modal__title" x-text="step === 1 || step === 2 ? 'Подтвердите почту' : 'Заявка отправлена'">Подтвердите почту</h3>
+                <button type="button" aria-label="button" class="btn modal__close-btn order-complete-modal__close-btn" x-on:click="configuratorSubmitModal = false">
+                  <svg class="order-complete-modal__close-btn-icon" width="15" height="15">
+                      <use href="../resources/svgSprites/svgSprite.svg#close-icon"></use>
+                  </svg>
+                </button>
+              </div>
+              <div class="configurator-submit-modal__steps">
+              <div class="configurator-submit-modal__step-1" x-show="step === 1" x-collapse.duration.800ms>
+              <div class="configurator-submit-modal__step-1-info">
+                <span>Вы указали:</span>
+                <strong>Ivan@gmail.com</strong>
+              </div>
+              <p>На вашу почту будет отправлено письмо с кодом.</p>
+            </div>
+            <div class="configurator-submit-modal__step-2" x-show="step === 2" x-collapse.duration.800ms>
+                <div class="configurator-submit-modal__step-2-info">
+                <p>Мы отправили четырёхзначный код на ivan@gmail.com+ длинный Email.</p>
+                <p>Введите код ниже, чтобы подтвердить почту.</p>
+               </div>
+               <div class="configurator-submit-modal__four-digit-code" x-data="{inputValue1: '', inputValue2: '', inputValue3: '', inputValue4: ''}">
+                <div class="configurator-submit-modal__four-digit-code-number" x-bind:class="{ 'active': inputValue1 }">
+                    <input type="number" name="number1" id="number1" x-model="inputValue1">
+                </div>
+                <div class="configurator-submit-modal__four-digit-code-number" x-bind:class="{ 'active': inputValue2 }">
+                    <input type="number" name="number2" id="number2" x-model="inputValue2">
+                </div>
+                <div class="configurator-submit-modal__four-digit-code-number" x-bind:class="{ 'active': inputValue3 }">
+                    <input type="number" name="number3" id="number3" x-model="inputValue3">
+                </div>
+                <div class="configurator-submit-modal__four-digit-code-number" x-bind:class="{ 'active': inputValue4 }">
+                    <input type="number" name="number4" id="number4" x-model="inputValue4">
+                </div>
+               </div>
+            </div>
+            <div class="configurator-submit-modal__step-3" x-show="step === 3" x-collapse.duration.800ms>
+                <div class="configurator-submit-modal__step-3-info">
+                <p>Менеджер свяжется с вами в ближайшее время.</p>
+               </div>
+               <div class="configurator-submit-modal__details">
+                 <strong>Детали заказа:</strong>
+                 <div class="configurator-submit-modal__details-row">
+                  <h3 class="configurator-submit-modal__details-title"><span>NMRV</span><span>_110</span><span>_7</span><span>,5</span><span>_132IMB5</span><span>_1SH1R</span><span>_АИР112M2</span><span>_M1</span><span>_B3</span><span>_0</span><span>_AB</span></h3>
+                  <p class="configurator-submit-modal__details-count">1 <span>шт</span></p>
+                 </div>
+                 <a href="#" download class="configurator-submit-modal__download-link">
+                <svg class="configurator-submit-modal__download-link-icon" width="17" height="18">
+                        <use href="../resources/svgSprites/svgSprite.svg#download-icon"></use>
+                    </svg>
+                    Скачать чертёж
+                 </a>
+                 <ul role="list" class="configurator-submit-modal__chars-list" x-show="toggleCharsList === true" x-collapse.duration.800ms>
+                    <li>
+                        <p>Тип передачи</p>
+                        <p>Цилиндрический</p>
+                    </li>
+                    <li>
+                        <p>Количество ступеней передачи</p>
+                        <p>Одноступенчатый</p>
+                    </li>
+                    <li>
+                        <p>Расположение осей</p>
+                        <p>Параллельное</p>
+                    </li>
+                    <li>
+                        <p>Передаточное отношение</p>
+                        <p>от 1.25 до 5.6;</p>
+                    </li>
+                    <li>
+                        <p>Номинальный крутящий момент, Н*м</p>
+                        <p>470</p>
+                    </li>
+                    <li>
+                        <p>Суммарное межосевое расстояние, мм</p>
+                        <p>80</p>
+                    </li>
+                    <li>
+                        <p>Масса, кг</p>
+                        <p>14</p>
+                    </li>
+                    <li>
+                        <p>КПД. отн.ед.</p>
+                        <p>0.97</p>
+                    </li>
+                 </ul>
+               </div>
+            </div>
+            </div>
+            <div class="configurator-submit-modal__bottom configurator-submit-modal__bottom--step-1" x-bind:class="{ 'active': step === 1 }">
+                <div class="configurator-submit-modal__step-line-wrapper">
+                    <span class="configurator-submit-modal__step-line-circle active"></span>
+                    <p class="configurator-submit-modal__step-line"></p>
+                    <span class="configurator-submit-modal__step-line-circle"></span>
+                </div>
+                <div class="configurator-submit-modal__btn-group">
+                    <button type="button" aria-label="button" class="btn btn--flat configurator-submit-modal__prev-step-btn" x-on:click="step = 1">Назад</button>
+                    <button type="button" aria-label="button" class="btn btn--primary configurator-submit-modal__next-step-btn" x-on:click="step = 2">Далее</button>
+                </div>
+            </div>
+            <div class="configurator-submit-modal__bottom configurator-submit-modal__bottom--step-2" x-bind:class="{ 'active': step === 2 }">
+                <div class="configurator-submit-modal__step-line-wrapper">
+                    <span class="configurator-submit-modal__step-line-circle"></span>
+                    <p class="configurator-submit-modal__step-line"></p>
+                    <span class="configurator-submit-modal__step-line-circle active"></span>
+                </div>
+                <div class="configurator-submit-modal__btn-group">
+                    <button type="button" aria-label="button" class="btn btn--flat configurator-submit-modal__prev-step-btn" x-on:click="step = 2">Назад</button>
+                    <button type="button" aria-label="button" class="btn btn--primary configurator-submit-modal__next-step-btn" x-on:click="step = 3">Далее</button>
+                </div>
+            </div>
+            <div class="configurator-submit-modal__bottom configurator-submit-modal__bottom--step-3" x-bind:class="{ 'active': step === 3 }">
+                <button type="button" aria-label="button" class="configurator-submit-modal__expand-btn" x-on:click="toggleCharsList = !toggleCharsList">
+                    Подробнее
+                    <svg class="configurator-submit-modal__expand-btn-icon" width="12" height="10" x-bind:class="{ 'active': toggleCharsList === true }">
+                        <use href="../resources/svgSprites/svgSprite.svg#icon-expand"></use>
+                    </svg>
+                </button>
+                <div class="configurator-submit-modal__btn-group">
+                    <a href="#" class="btn btn--primary configurator-submit-modal__btn-link">На страницу товара</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://unpkg.com/@popperjs/core@2" defer></script>
+<script src="https://unpkg.com/tippy.js@6" defer></script>
+<script type="module">
+    tippy('[data-tippy-theme="grey"]');
+    if(window.innerWidth >= 1200) {
+        tippy(document.querySelectorAll('[data-tippy-theme="red"]'), {
+        showOnCreate: true,
+    });
+    }
+</script>
+{% endblock %}
