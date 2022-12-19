@@ -186,7 +186,9 @@
                     <p>Оформление заявки</p>
                 </h2>
                 <div class="configurator-page-form__step-body configurator-page-form__step-body-2 configurator-page-form__step-body-2--zdy-page" x-show="step === 2" x-collapse.duration.800ms>
-                   <h3 class="section-title configurator-page-form__full-name-title"><span>NMRV</span><span>_110</span><span>_7,5</span><span>_132IMB5</span><span>_1SH1R</span><span>_АИР112M2</span><span>_M1</span><span>_B3</span><span>_0</span><span>_AB</span></span></h3>
+                   <h3 class="section-title configurator-page-form__full-name-title">
+                    1Ц2У-100-<span x-text="selectValue">8</span>-<span x-text="variantInputValue === 'Не знаю' ? '?' : variantInputValue">?</span>-<span x-text="selectValue2 === 'Конический' ? 'K' : selectValue2 === 'Цилиндрический' ? 'Ц' : selectValue2">К</span>-<span x-text="selectValue3 === 'Конический' ? 'K': selectValue3 === 'Цилиндрический' ? 'Ц': selectValue3 === 'Полый Шпоночный' ? 'ПШ': selectValue3 === 'Зубчатая муфта' ? 'ЗМ' : selectValue3">K</span>
+                    </h3>
                    <div class="form-controls-wrapper configurator-page-form__form-controls-wrapper configurator-page-form__form-controls-wrapper--reductor-count">
                     <label>Кол-во редукторов<sup>*</sup></label>
                     <div class="configurator-page-form__counter" x-data="{counter: 1}">

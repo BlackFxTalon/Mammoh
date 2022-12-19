@@ -5,7 +5,7 @@
 {% block content %}
 <div class="configurator-zdy-page-grid" x-data="{step: 1}">
 <aside class="configurator-zdy-page-aside mp-series">
-<div class="configurator-zdy-page-aside__fixed-desktop-elems">
+<div class="configurator-zdy-page-aside__fixed-desktop-elems mp-series">
 {% include "./parts/breadcrumbs.html" %}
 <a href="#" class="previous-link configurator-zdy-page-aside__previous-link mp-series">
     <svg class="previous-link__icon" width="24" height="12">
@@ -113,7 +113,7 @@
             </ul>
         </nav>
     </div>
-    <div class="configurator-zdy-page-aside__top-row-info" x-show="step === 2" x-data="{toggleDropdown: true}">
+    <div class="configurator-zdy-page-aside__top-row-info" x-data="{toggleDropdown: true}" x-show="step === 2">
         <picture class="configurator-zdy-page__main-img-picture mp-series">
           <img src="/resources/images/configurator-zdy-main-img.png" loading="lazy" decoding="async" alt="image" class="configurator-zdy-page__main-img" width="315" height="100">
         </picture>
@@ -496,7 +496,6 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <template x-for="i in 2">
                                     <tr>
                                         <td>
                                             <div class="configurator-page-form__chars-table-select-wrapper">
@@ -552,7 +551,7 @@
                                         <td>Мотор</td>
                                         <td>1348 поз.</td>
                                     </tr>
-                                </template>
+
                                 <template x-for="i in 2">
                                     <tr>
                                         <td>110</td>
@@ -826,6 +825,7 @@
 {% block scripts %}
 <script src="https://unpkg.com/@popperjs/core@2" defer></script>
 <script src="https://unpkg.com/tippy.js@6" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/sticksy/dist/sticksy.min.js"></script>
 <script type="module">
     tippy('[data-tippy-theme="grey"]');
     if(window.innerWidth >= 1200) {
@@ -833,5 +833,18 @@
         showOnCreate: true,
     });
     }
+
+    const stickyEl = new Sticksy('.configurator-zdy-page-aside__fixed-desktop-elems.mp-series', {
+    topSpacing: 70,
+    listen: true, // Listen for the DOM changes in the container
+});
+
+stickyEl.onStateChanged = function (state) {
+    if(state === 'fixed') {
+        stickyEl.nodeRef.classList.add('widget--sticky')
+    } else {
+        stickyEl.nodeRef.classList.remove('widget--sticky')
+    }
+}
 </script>
 {% endblock %}

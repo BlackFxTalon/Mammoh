@@ -28,6 +28,13 @@
         }
     }
 
+    &__fixed-desktop-elems.mp-series {
+        @include media-custom(1200px) {
+            padding-bottom: 1rem;
+            position: unset;
+        }
+    }
+
     &__previous-link,
     &__top-row,
     &__info {
