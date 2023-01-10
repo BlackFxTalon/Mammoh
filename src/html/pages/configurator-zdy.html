@@ -31,7 +31,7 @@
 </div>
 </div>
 </aside>
-<section class="configurator-zdy-page" x-data="{configuratorSubmitModal: false, selectValue: 8, selectValue2: 'К', selectValue3: 'K', variantInputValue: 'Не знаю', inputNumberValueMin1: null, inputNumberValueMax1: null, inputNumberValueMin2: null, inputNumberValueMax2: null }">
+<section class="configurator-zdy-page" x-data="{configuratorSubmitModal: false, selectValue: 'Не знаю', selectValue2: 'К', selectValue3: 'K', variantInputValue: 'Не знаю', inputNumberValueMin1: null, inputNumberValueMax1: null, inputNumberValueMin2: null, inputNumberValueMax2: null }">
     <div class="container configurator-zdy-page__container">
         <div class="configurator-zdy-page__title-row">
             <a href="#" class="previous-link configurator-zdy-page__previous-link">
@@ -40,7 +40,7 @@
                 </svg>
             </a>
             <h1 class="section-title configurator-zdy-page__section-title">
-                1Ц2У-100-<span x-text="selectValue"></span>-<span x-text="variantInputValue === 'Не знаю' ? '?' : variantInputValue"></span>-<span x-text="selectValue2 === 'Конический' ? 'K' : selectValue2 === 'Цилиндрический' ? 'Ц' : selectValue2"></span>-<span x-text="selectValue3 === 'Конический' ? 'K': selectValue3 === 'Цилиндрический' ? 'Ц': selectValue3 === 'Полый Шпоночный' ? 'ПШ': selectValue3 === 'Зубчатая муфта' ? 'ЗМ' : selectValue3"></span>
+                1Ц2У-100-<span x-text="selectValue === Не знаю' ? '?': selectValue"></span>-<span x-text="variantInputValue === 'Не знаю' ? '?' : variantInputValue"></span>-<span x-text="selectValue2 === 'Конический' ? 'K' : selectValue2 === 'Цилиндрический' ? 'Ц' : selectValue2"></span>-<span x-text="selectValue3 === 'Конический' ? 'K': selectValue3 === 'Цилиндрический' ? 'Ц': selectValue3 === 'Полый Шпоночный' ? 'ПШ': selectValue3 === 'Зубчатая муфта' ? 'ЗМ' : selectValue3"></span>
             </h1>
         </div>
         <div class="configurator-zdy-page__top-row">
@@ -71,6 +71,7 @@
                     <p class="configurator-page-form__controls-group-label"><i>i</i><span>-</span><span>передаточное отношение</span></p>
                     <div class="configurator-page-form__select-wrapper" data-tippy-content="укажите передаточное отношение" data-tippy-arrow="true" data-tippy-placement="top" data-tippy-theme="red">
                     <select name="variant" id="variant" class="configurator-page-form__select" x-model="selectValue">
+                        <option value="Не знаю">8</option>
                         <option value="8">8</option>
                         <option value="10">10</option>
                         <option value="12.5">12.5</option>
@@ -167,7 +168,7 @@
                         </select>
                     </div>
                 </div>
-                <button type="button" aria-label="button" class="configurator-page-form__clear-btn configurator-page-form__clear-btn--zdy-page" x-on:click="selectValue = 8; selectValue2 = 'К'; selectValue3 = 'K'; inputNumberValueMin1 = null; inputNumberValueMax1 = null; inputNumberValueMin2 = null; inputNumberValueMax2 = null; $refs.inputPowerInput.checked = true; $refs.inputSpeedInput.checked = true">
+                <button type="button" aria-label="button" class="configurator-page-form__clear-btn configurator-page-form__clear-btn--zdy-page" x-on:click="selectValue = 'Не знаю'; selectValue2 = 'К'; selectValue3 = 'K'; variantInputValue = 'Не знаю'; inputNumberValueMin1 = null; inputNumberValueMax1 = null; inputNumberValueMin2 = null; inputNumberValueMax2 = null; $refs.inputPowerInput.checked = true; $refs.inputSpeedInput.checked = true">
                     <svg class="configurator-page-form__clear-btn-icon" width="12" height="12">
                         <use href="../resources/svgSprites/svgSprite.svg#close-icon"></use>
                     </svg>
