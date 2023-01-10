@@ -12,6 +12,11 @@
     &__fixed-desktop-elems {
         @include media-extra-large() {
             position: fixed;
+            max-width: 600px;
+        }
+
+        @include media-custom(1920px) {
+            max-width: 800px;
         }
     }
 }

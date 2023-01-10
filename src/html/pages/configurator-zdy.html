@@ -60,7 +60,7 @@
                 </p>
             </div>
         </div>
-        <form action="#" class="configurator-page-form" x-data="{step: 1}" x-on:submit.prevent="configuratorSubmitModal = true">
+        <form action="#" class="configurator-page-form" x-data="{step: 1}" x-on:submit.prevent="fetchData()">
             <fieldset class="configurator-page-form__fieldset configurator-page-form__fieldset--step-1 configurator-page-form__fieldset--b-b-none active" x-bind:class="{ 'active': step === 1 }">
                 <h2 class="configurator-page-form__title active" x-bind:class="{ 'active': step === 1 }">
                     <p>Шаг <span>1</span> <span>:</span></p>
@@ -404,6 +404,20 @@
         tippy(document.querySelectorAll('[data-tippy-theme="red"]'), {
         showOnCreate: true,
     });
+    }
+</script>
+<script>
+    async function fetchData() {
+        let response = await fetch('http://jsonplaceholder.typicode.com/posts');
+        if (response.ok) { 
+            // если HTTP-статус в диапазоне 200-299
+             // получаем тело ответа 
+              let json = await response.json();
+              console.log(json);
+              document.getElementById('webSiteBody').dispatchEvent(new CustomEvent('open-order-complete-modal'));
+       } else {
+         console.log("Ошибка HTTP: " + response.status);
+       }
     }
 </script>
 {% endblock %}
